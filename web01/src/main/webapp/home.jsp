@@ -28,14 +28,14 @@
 		<input type="submit" value="Test">
 	</form>
 	<hr>
-	<!--	** 경로표기
+	<!-- <!--	** 경로표기
 		=> 절대경로: /로 시작, 프로젝트명부터 전체경로 표기	
 				->		/web01/images/letsgo.png
 				-> 		webapp 폴더는 생략됨
 		=> 상대경로: 현재위치에서 시작, /로 시작하면 안됨
 			-> ./ : 현재위치, ../ : 1단계 상위 
 			-> "./images/letsgo.png", "images/letsgo.png" 동일
-	-->
+	--> -->
 	<img alt="" src="/web01/images/jerryInsa.gif" width="300" height="200">
 	<img alt="" src="/web01/images/jerry04.gif" width="300" height="200">
 	<hr>
