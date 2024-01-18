@@ -7,7 +7,7 @@ import model.MemberDAO;
 
 public class MemberService {
 	// ** 전역변수 정의
-	MemberDAO dao;
+	MemberDAO dao = new MemberDAO();
 	
 	// ** selectList
 		public List<MemberDTO> selectList() {
