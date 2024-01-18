@@ -21,12 +21,33 @@
 		<url-pattern>/hello</url-pattern>
 		<url-pattern>/123</url-pattern>
 		<url-pattern>/seven7</url-pattern>
-    </servlet-mapping> 	
+    </servlet-mapping> 	 -->
     
-    Sesstion Time 설정
-    	=> 단위: 분단위, 0 또는 음수일시 무제한
-    <session-config>
+<!--     Sesstion Time 설정
+    	=> 단위: 분단위, 0 또는 음수일시 무제한 -->
+    	
+<!--     <session-config>
     	<sesstion-timeout>1</sesstion-timeout>
     </session-config> -->
+    
+<!--     Exception Test1 : 응답상태 코드 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/jsp04_Exception/ex02_404Page.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/jsp04_Exception/ex02_500Page.jsp</location>
+	</error-page>
+
+<!--     Exception Test2 : Exception Type -->
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/jsp04_Exception/ex03_Null.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.ArithmeticException</exception-type>
+		<location>/jsp04_Exception/ex03_Arith.jsp</location>
+	</error-page>
 	
 </web-app>
