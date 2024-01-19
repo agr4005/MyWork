@@ -50,12 +50,11 @@ public class Ex04_Login extends HttpServlet {
 			System.out.println("** 로그인 실패 **");
 			uri="servletTestForm/flowEx04_LoginForm.jsp" ;
 			request.setAttribute("message", "로그인 실패!!! 다시하세요.");
-			request.getRequestDispatcher(uri).forward(request, response);
 	
 		}
 		
 		// 3. View (Response) : Forward or Redirect
-		//request.getRequestDispatcher(uri).forward(request, response);
+		request.getRequestDispatcher(uri).forward(request, response);
 	
 	} //doGet
 
