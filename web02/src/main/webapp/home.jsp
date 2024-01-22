@@ -19,7 +19,6 @@
 </c:otherwise>
 </c:choose>
 
-
 <hr>
 	<img alt="" src="/web02/images/jerryInsa.gif" width="300" height="200">
 	<img alt="" src="/web02/images/jerry04.gif" width="300" height="200">

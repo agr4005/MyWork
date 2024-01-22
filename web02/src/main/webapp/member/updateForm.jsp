@@ -13,6 +13,11 @@
 	<tr height="40">
 		<td bgcolor="aqua" ><label for="id">I D</label></td>
 		<td><input type="text" name="id" id="id" value="${requestScope.apple.id}" readonly size="20"></td>
+		<!-- 
+		readonly : 읽기만 가능. 서버로는 데이터가 전송됨.
+		disable : 읽기만 가능하나 서버로 전송되지도 않음.
+		
+		 -->
 	</tr>
 	<tr height="40">
 		<td bgcolor="aqua"><label for="password">Password</label></td>
