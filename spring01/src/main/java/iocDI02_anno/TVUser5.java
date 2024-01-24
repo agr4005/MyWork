@@ -37,7 +37,7 @@ interface TV {
 	void volumeDown();
 }
 
-@Component("tv")
+//@Component("tv")
 class SsTVi implements TV {
 	
 	public SsTVi() {System.out.println("~~ SsTVi 기본 생성자 ~~"); }
@@ -51,7 +51,7 @@ class SsTVi implements TV {
 	@Override
 	public void volumeUp() {System.out.println("~~ SsTVi volumeUp ~~");}
 }
-@Component("ltv")
+//@Component("ltv")
 class LgTVi implements TV {
 	
 	public LgTVi() {System.out.println("~~ LgTVi 기본 생성자 ~~"); }

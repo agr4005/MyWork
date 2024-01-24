@@ -3,6 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- ** 1) 고전적 방법 (직접 new : 소스 재컴파일) ** 
+		=> 기본생성자 호출 -->
 	<bean id="sstv" class="iocDI01_xml.SsTVsi" lazy-init="true"/>
 	
 	<!-- ** 2) IOC/DI -> 생성자 주입 ** -->

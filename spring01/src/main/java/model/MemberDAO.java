@@ -3,9 +3,11 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import domain.MemberDTO;
 
 //** DAO(Data Access Object)
@@ -13,10 +15,10 @@ import domain.MemberDTO;
 //=> CRUD 구현 
 //   Create(Insert), Read(selectList, selectOne), Update, Detete
 
+@Component
 public class MemberDAO {
 	// ** 전역변수 정의
 	private static Connection cn = DBConnection.getConnection();
-	private static Statement st;
 	private static PreparedStatement pst;
 	private static ResultSet rs;
 	private static String sql;
