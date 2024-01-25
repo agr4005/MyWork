@@ -16,7 +16,6 @@ public class C02_mDetail implements Controller{
 @Override
 public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 	
-	
 //	MemberService service = new MemberService();
 	ModelAndView mv = new ModelAndView();
 	mv.addObject("apple", service.selectOne("agr4005"));
