@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import domain.MemberDTO;
 
@@ -15,7 +16,8 @@ import domain.MemberDTO;
 //=> CRUD 구현 
 //   Create(Insert), Read(selectList, selectOne), Update, Detete
 
-@Component
+//@Component
+@Repository
 public class MemberDAO {
 	// ** 전역변수 정의
 	private static Connection cn = DBConnection.getConnection();
