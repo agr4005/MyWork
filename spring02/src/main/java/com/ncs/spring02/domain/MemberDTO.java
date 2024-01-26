@@ -22,9 +22,9 @@ import lombok.NoArgsConstructor;
 //=> @Setter(모든 필드-final로 선언되지 않은) : setter를 생성하도록 지원
 //=> @ToString :  모든 필드를 출력하는 toString() 메소드 생성 
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+@AllArgsConstructor		// 모든 인자를 포함한 생성자
+@NoArgsConstructor		// 디폴트 생성자
+@Data					// getter / setter / toString
 //=> 정의된 모든 필드에 대한 
 //Getter, Setter, ToString 과 같은 모든 요소를 한번에 만들어주는 애너테이션.
 public class MemberDTO {

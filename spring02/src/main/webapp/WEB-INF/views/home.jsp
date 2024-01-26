@@ -11,15 +11,17 @@
 <h2>** Hello Spring_MVC02 !!! **</h2>
 <P>* Home_time: ${serverTime}. </P>
 <hr>
+
 <c:if test="${!empty sessionScope.loginName}">
 	${sessionScope.loginName}님 안녕하세요 ~~<br>
 </c:if>
-<c:if test="${empty sessionScope.loginID}">
+  <c:if test="${!empty requestScope.message}" >
+       ${requestScope.message}<br>
+   </c:if>
+<c:if test="${empty sessionScope.loginID && empty requestScope.message}">
 	로그인 후 이용하세요 ~~<br>
 </c:if>
-  <c:if test="${!empty requestScope.message}" >
-      <hr> =>${ requestScope.message }<br>
-   </c:if>
+   
    <hr>
 	<img alt="mainImage" src="/spring02/resources/images/jerry01.gif" width="300" height="200">
 	<hr>
@@ -37,5 +39,6 @@
 	</c:if>
 	<br><hr>
 	&nbsp; <a href="member/memberList">MList</a> &nbsp;	
+	&nbsp; <a href="jo/joList">JList</a> &nbsp;	
 </body>
 </html>
