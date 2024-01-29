@@ -15,13 +15,14 @@
 </c:if>
 <table border="1" style="width:100%">
 <tr bgcolor="DeepSkyBlue">
-			<th>JNO</th><th>JNAME</th><th>CAPTAIN</th><th>PROJECT</th><th>SLOGAN</th>
+			<th>JNO</th><th>JNAME</th><th>CAPTAIN</th><th>조장명</th><th>PROJECT</th><th>SLOGAN</th>
 		</tr>
 		
 		<c:if test="${!empty requestScope.banana}">
 			<c:forEach var="s" items="${requestScope.banana}">
 			<tr>
-			<td><a href="/spring02/jo/joDetail?jno=${s.jno}">${s.jno}</a></td><td>${s.jname}</td><td>${s.captain}</td><td>${s.project}</td><td>${s.slogan}</td>
+			<td><a href="/spring02/jo/joDetail?jno=${s.jno}">${s.jno}</a></td><td>${s.jname}</td><td>${s.captain}</td>
+			<td>${s.cname}</td><td>${s.project}</td><td>${s.slogan}</td>
 			</tr>
 			</c:forEach>
 		</c:if>

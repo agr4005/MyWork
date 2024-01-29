@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>** Update Form **</title>
+</head>
+<body>
+<h2>** Web MVC2 Update Form **</h2>
+<form action="update" method="post">
+<table>
+<c:set var="s" value="${requestScope.apple}"/>
+<c:if test="${!empty requestScope.apple}">
+	<tr height="40">
+		<td bgcolor="gray" ><label for="title">Title</label></td>
+		<td><input type="text" name="title" id="title" value="${requestScope.apple.title}" size="20"></td>
+	</tr>
+	<tr height="80">
+		<td bgcolor="gray"><label for="content">Content</label></td>
+		<td><input type="text" name="content" id="content" value="${requestScope.apple.content}" size="20"></td>
+	</tr>
+	
+	<tr> <td></td>
+		<td><input type= "submit" value="수정">&nbsp;&nbsp;
+			<input type="reset" value="취소"> 
+		</td>
+		</c:if>
+</table>
+</form>
+<br><hr>
+<c:if test="${!empty requestScope.message}">
+=> ${requestScope.message}<br><hr>
+</c:if>	
+
+&nbsp;<a href="/spring02/home">[Home]</a>&nbsp;
+&nbsp;<a href="javascript:history.go(-1)">[이전으로]</a>&nbsp;
+
+</body>
+</html>
