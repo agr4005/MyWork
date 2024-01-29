@@ -2,6 +2,7 @@ package com.ncs.spring02.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +14,19 @@ import com.ncs.spring02.domain.JoDTO;
 @Repository
 public class JoDAO {
 	private static Connection cn = DBConnection.getConnection();
+	private static Statement st;
 	private static PreparedStatement pst;
 	private static ResultSet rs;
 	private static String sql;
 	
 	public List<JoDTO> selectList() {
-		sql="select * from jo";
+//		sql="select * from jo";
+		sql="select j.jno, jname, j.captain, m.name, project, slogan "
+				+ "from jo j LEFT OUTER JOIN member m ON j.captain=m.id";
 		List<JoDTO> list = new ArrayList<JoDTO>();
 		
 		try {
+			st=cn.createStatement();
 			pst=cn.prepareStatement(sql);
 			rs=pst.executeQuery();	
 
@@ -32,8 +37,9 @@ public class JoDAO {
 					dto.setJno(rs.getInt(1));
 					dto.setJname(rs.getString(2));
 					dto.setCaptain(rs.getString(3));
-					dto.setProject(rs.getString(4));
-					dto.setSlogan(rs.getString(5));
+					dto.setCname(rs.getString(4));
+					dto.setProject(rs.getString(5));
+					dto.setSlogan(rs.getString(6));
 					list.add(dto);
 				}while(rs.next());
 				return list;

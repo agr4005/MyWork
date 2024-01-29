@@ -4,3 +4,5 @@
 => Jsp : joList.jsp, joDetail.jsp, joInsert.jsp, joUpdate.jsp
 => home : 메뉴 추가 <a href="jo/joList">JList</a>
 => joList에서 jno를 클릭하면 joDetail로 출력
+
+** 기능 추가

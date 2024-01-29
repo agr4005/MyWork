@@ -1,8 +1,4 @@
 package com.ncs.spring02.controller;
-
-import javax.servlet.http.HttpSession;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,27 +8,38 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ncs.spring02.domain.JoDTO;
 import com.ncs.spring02.service.JoService;
+import com.ncs.spring02.service.MemberService;
+
+import lombok.AllArgsConstructor;
 
 @Controller
 @RequestMapping(value="/jo")
+@AllArgsConstructor
+//	=> 모든 멤버변수를 초기화하는 생성자 자동 추가 & 사용
+//	=> 그러므로 @Autowired 생략가능
 public class JoController {
-	
-	@Autowired(required = false)
-	JoService service;
+
+//	@Autowired // Autowired 적용시 개별적으로 적용해야함.
+	JoService service;	// = new JoService();
+//	@Autowired
+	MemberService mservice;
 
 	@RequestMapping(value = "/joList", method = RequestMethod.GET)
 	public void mList(Model model) {
 		model.addAttribute("banana", service.selectList());
 	}	//joList
 	
-	
 	@RequestMapping(value = "/joDetail", method = RequestMethod.GET)
 	public String detail(Model model, @RequestParam("jno") int jno, JoDTO dto) {
 
-		int id = dto.getJno();
 		String uri = "jo/joDetail";	
 		
-		model.addAttribute("apple", service.selectOne(id));
+//		** 조원 목록 출력하기 추가 (detail 출력시에만)
+//		=> MemberService 실행
+//		-> selectJoList 메서드 추가 : service, DAO
+//		-> 실행결과는 banana로
+		model.addAttribute("apple", service.selectOne(dto.getJno()));
+		model.addAttribute("banana", mservice.selectJoList(dto.getJno()));
 		return uri;	
 	}	//joDetail
 	
