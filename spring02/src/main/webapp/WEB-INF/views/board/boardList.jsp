@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 <meta charset="UTF-8">
 <title>** Spring MVC2 BoardList **</title>
 </head>
@@ -23,6 +25,14 @@
 			<tr>
 			<td>${b.seq}</td>
 			<td>
+			<!-- 답글 등록 후 Title 출력전에 들여쓰기 추가 -->
+			<c:if test="${b.indent>0}">
+				<c:forEach begin="1" end="${b.indent}">
+					<span>&nbsp;&nbsp;</span>
+				</c:forEach>
+				<span style="color:blue;"><b>re..</span>
+			</c:if>
+			
 			<c:if test="${!empty loginID}">
 			<a href="detail?jCode=D&seq=${b.seq}">${b.title}</a>		
 			</c:if>

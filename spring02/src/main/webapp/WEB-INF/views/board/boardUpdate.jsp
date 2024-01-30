@@ -6,19 +6,33 @@
 <meta charset="UTF-8">
 <title>** Update Form **</title>
 </head>
+	<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 <body>
 <h2>** Web MVC2 Update Form **</h2>
 <form action="update" method="post">
 <table>
 <c:set var="s" value="${requestScope.apple}"/>
 <c:if test="${!empty requestScope.apple}">
+<tr height="40">
+		<td bgcolor="gray"><label for="id">ID</label></td>
+		<td><input type="text" name="id" id="id" size="10" value="${loginID}" readonly></td>
+	</tr>
+	<tr height="40">
+		<td bgcolor="gray" ><label for="seq">Seq</label></td>
+		<td><input type="text" name="seq" id="seq" value="${requestScope.apple.seq}" readonly size="10"></td>
+	</tr>
 	<tr height="40">
 		<td bgcolor="gray" ><label for="title">Title</label></td>
-		<td><input type="text" name="title" id="title" value="${requestScope.apple.title}" size="20"></td>
+		<td><input type="text" name="title" id="title" value="${requestScope.apple.title}" size="50"></td>
 	</tr>
-	<tr height="80">
+	<tr height="150">
 		<td bgcolor="gray"><label for="content">Content</label></td>
-		<td><input type="text" name="content" id="content" value="${requestScope.apple.content}" size="20"></td>
+		<td><textarea rows ="5" cols="50" name="content">${requestScope.apple.content}</textarea></td>
+	</tr>
+	<tr height="40">
+		<td bgcolor="gray" ><label for="cnt">조회수</label></td>
+		<td><input type="text" name="cnt" id="cnt" value="${requestScope.apple.cnt}" readonly size="50"></td>
 	</tr>
 	
 	<tr> <td></td>

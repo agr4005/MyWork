@@ -21,4 +21,7 @@ public interface BoardService {
 	//	** delete
 	public int delete(int seq);
 	
+	//	** replyInsert
+	public int rinsert(BoardDTO dto);
+	
 }	//class

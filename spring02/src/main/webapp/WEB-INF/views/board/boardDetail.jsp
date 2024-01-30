@@ -4,37 +4,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 <meta charset="UTF-8">
 <title>** Web_MVC2 Board Detail **</title>
 </head>
 <body>
 <h2>** Web_MVC2 Board Detail **</h2>
 
-<table style="width: 300px; height: 300px; text-align: center;" >
+<table style="width: 500px; height: 300px; text-align: center;" >
 <c:set var="m" value="${requestScope.apple}"/>
 <c:if test="${!empty requestScope.apple}">
 	<tr>
-		<td bgcolor="green">Seq</td>
+		<td bgcolor="yellowgreen">Seq</td>
 		<td>${m.seq}</td>
 	</tr>
 	<tr>
-		<td bgcolor="green">Title</td>
+		<td bgcolor="yellowgreen">Title</td>
 		<td>${m.title}</td>
 	</tr>
 	<tr>
-		<td bgcolor="green">I D</td>
+		<td bgcolor="yellowgreen">I D</td>
 		<td>${m.id}</td>
 	</tr>
 	<tr>
-		<td bgcolor="green">Content</td>
+		<td bgcolor="yellowgreen">Content</td>
 		<td>${m.content}</td>
 	</tr>
 	<tr>
-		<td bgcolor="green">Regdate</td>
+		<td bgcolor="yellowgreen">Regdate</td>
 		<td>${m.regdate}</td>
 	</tr>
 	<tr>
-		<td bgcolor="green">조회수</td>
+		<td bgcolor="yellowgreen">조회수</td>
 		<td>${m.cnt}</td>
 	</tr>
 </c:if>
@@ -46,9 +48,18 @@
 <c:if test="${!empty requestScope.message}">
 => ${requestScope.message}<br><hr>
 </c:if>	
-
+<c:if test="${!empty sessionScope.loginID}">
+&nbsp;<a href="boardInsert">새글등록</a>&nbsp;
+<!-- 답글등록을 위해 부모글의 root, step, indent 값이 필요하기 때문에
+    서버로 보내주어야함 (쿼리스트링으로 작성)    -->	
+&nbsp; <a href="replyInsert?root=${apple.root}&step=${apple.step}&indent=${apple.indent}">답글등록</a> &nbsp;
+</c:if>
+<c:if test="${m.id == loginID}">
 &nbsp;<a href="boardUpdate?seq=${m.seq}">[글 수정]</a>&nbsp;
 &nbsp;<a href="delete?seq=${m.seq}">[글 삭제]</a>&nbsp;
+</c:if>
+
+&nbsp; <a href="boardList">BList</a> &nbsp;
 &nbsp;<a href="/spring02/home">Home</a>&nbsp;
 &nbsp;<a href="javascript:history.go(-1)">이전으로</a>&nbsp;
 

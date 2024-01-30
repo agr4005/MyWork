@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 <meta charset="UTF-8">
 <title>** 글쓰기 **</title>
 </head>
@@ -10,12 +12,16 @@
 <form action="insert" method="post">
 <table>
 	<tr height="40">
+		<td bgcolor="aqua"><label for="id">ID</label></td>
+		<td><input type="text" name="id" id="id" size="80" value=${loginID} readonly></td>
+	</tr>
+	<tr height="40">
 		<td bgcolor="aqua" ><label for="title">Title</label></td>
 		<td><input type="text" name="title" id="title" placeholder="제목 필수 기입!" size="20"></td>
 	</tr>
 	<tr height="100">
 		<td bgcolor="aqua"><label for="content">Content</label></td>
-		<td><input type="text" name="content" id="content" size="80" height="100px"></td>
+		<td><textarea name="content" id="content"></textarea></td>
 	</tr>
 	
 	<tr> <td></td>
