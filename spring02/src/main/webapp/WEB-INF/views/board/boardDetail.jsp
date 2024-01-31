@@ -54,9 +54,9 @@
     서버로 보내주어야함 (쿼리스트링으로 작성)    -->	
 &nbsp; <a href="replyInsert?root=${apple.root}&step=${apple.step}&indent=${apple.indent}">답글등록</a> &nbsp;
 </c:if>
-<c:if test="${m.id == loginID}">
+<c:if test="${m.id == sessionScope.loginID}">
 &nbsp;<a href="boardUpdate?seq=${m.seq}">[글 수정]</a>&nbsp;
-&nbsp;<a href="delete?seq=${m.seq}">[글 삭제]</a>&nbsp;
+&nbsp;<a href="delete?seq=${apple.seq}&root=${apple.root}">[글 삭제]</a>&nbsp;
 </c:if>
 
 &nbsp; <a href="boardList">BList</a> &nbsp;

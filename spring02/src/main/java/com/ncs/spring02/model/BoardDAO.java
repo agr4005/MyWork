@@ -111,6 +111,7 @@ public class BoardDAO {
 	//	** replyInsert : 답글입력
 	//	=> seq: IFNULL 이용
 	//	=> 입력 컬럼: id, title, content, root, step, indent
+	//	=> default 값: cnt
 	//	=>	JDBC subQuery 구문 적용시 주의사항
 	//	-> MySql: select 구문으로 한번더 씌워주어야함 (insert의 경우에도 동일)
 	// => stepUpdate 가 필요함
@@ -176,12 +177,21 @@ public class BoardDAO {
 	}	//update
 	
 	//	** delete
-	public int delete(int seq) {
-		sql="delete from board where seq=?";
+	//	=> seq로 삭제
+	//	=> 답글 추가 후 : 원글과 답글 구분
+	//	-> 원글 : ~ where root = ?	/ 모든 하위 답글도 동시에 삭제
+	//	-> 답글 : ~ where seq = ?	/ 해당 답글만 지워짐.	
+	public int delete(BoardDTO dto) {
+		if(dto.getSeq() == dto.getRoot()) {		
+			sql="delete from board where root=?";
+			// 원글삭제
+		} else {			
+			sql="delete from board where seq=?";
+			// 답글삭제
+		}
 		try {
 			pst=cn.prepareStatement(sql);
-			pst.setInt(1, seq);
-			
+			pst.setInt(1, dto.getSeq());
 			return pst.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(" ** Board delete Exception => " + e.toString() );

@@ -4,8 +4,11 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css"
-	 href="/spring02/resources/myLib/myStyle.css">
+	
+		<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
+	 <style>
+</style>
 </head>
 <body>
 <h2>** Hello Spring_MVC02 !!! **</h2>
