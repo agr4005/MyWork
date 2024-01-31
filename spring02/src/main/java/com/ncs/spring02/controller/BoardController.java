@@ -48,7 +48,6 @@ public class BoardController {
 	    //	- replyInsert, step의 Update
 	    dto.setStep(dto.getStep()+1);
 	    dto.setIndent(dto.getIndent()+1);
-	    System.out.println("***** " + dto);
 	    
 	    if( service.rinsert(dto) > 0 ) {
 	    	rttr.addFlashAttribute("message","~~ 답글등록 성공! ~~");
@@ -101,12 +100,12 @@ public class BoardController {
 	
 	
 	@PostMapping("/insert")
-	public String insert(Model model,  BoardDTO dto) {
+	public String insert(Model model,  BoardDTO dto, RedirectAttributes rttr) {
 		
 		String uri = "redirect:/board/boardList";
 		
 		if(service.insert(dto) > 0) {
-			model.addAttribute("message","~~ 글쓰기 성공! ~~");
+			rttr.addFlashAttribute("message","~~ 글쓰기 성공! ~~");
 		} else {
 			uri = "board/boardInsert";
 			model.addAttribute("message","~~ 글쓰기 실패! 다시 시도하세요 ~~");
@@ -136,14 +135,14 @@ public class BoardController {
 	}	//update
 	
 	@GetMapping("/delete")
-	public String delete(Model model, RedirectAttributes rttr, BoardDTO dto) {
+	public String delete(RedirectAttributes rttr, BoardDTO dto) {
 
-		String uri = "redirect:/board/boardList";
+		String uri = "redirect:boardList";
 
-		if (service.delete(dto.getSeq()) > 0) {
-			rttr.addFlashAttribute("message","~~ 글 삭제 성공! ~~");
+		if (service.delete(dto) > 0) {
+			rttr.addFlashAttribute("message","~~"+ dto.getSeq()+"번 글 삭제 성공! ~~");
 		} else {			
-			rttr.addFlashAttribute("message","~~ 글 삭제 실패 ~~");
+			rttr.addFlashAttribute("message","~~"+ dto.getSeq()+"번 글 삭제 실패! ~~");
 		}
 		
 		return uri;	

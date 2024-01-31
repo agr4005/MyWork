@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css"
-	 href="/spring02/resources/myLib/boardcss.css">
 <meta charset="UTF-8">
 <title>** 글쓰기 **</title>
+	<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 </head>
 <body>
 <form action="insert" method="post">
