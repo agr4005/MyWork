@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>** Web02_MVC02 MemberList **</title>
+		<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 </head>
 <body>
 <h2>** Web02_MVC02 MemberList **</h2>
@@ -15,15 +17,19 @@
 </c:if>
 <table border="1" style="width:100%">
 <tr bgcolor="DeepSkyBlue">
-			<th>ID</th><th>Password</th><th>Name</th><th>Age</th><th>Jno</th>
-			<th>Info</th><th>Point</th><th>Birthday</th><th>추천인</th>
+			<th>ID</th><th>Name</th><th>Age</th><th>Jno</th><th>Info</th>
+			<th>Point</th><th>Birthday</th><th>추천인</th><th>Image</th>
+			<!-- <th>Password</th> -->
 		</tr>
 		
 		<c:if test="${!empty requestScope.banana}">
 			<c:forEach var="s" items="${requestScope.banana}">
 			<tr>
-			<td>${s.id}</td><td>${s.password}</td><td>${s.name}</td><td>${s.age}</td><td>${s.jno}</td>
+			<td>${s.id}</td><td>${s.name}</td><td>${s.age}</td><td>${s.jno}</td>
 			<td>${s.info}</td><td>${s.point}</td><td>${s.birthday}</td><td>${s.rid}</td>
+			<td><img alt="myImage" width="50" height="70"
+			src="/spring02/resources/uploadImages/${s.uploadfile}"></td>
+			<%-- <td>${s.password}</td> --%>
 			</tr>
 			</c:forEach>
 		</c:if>

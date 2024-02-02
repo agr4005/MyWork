@@ -20,7 +20,10 @@ public interface MemberService {
 
 	// ** delete
 	int delete(String id);
-
+	
+	// ** selectJoList
 	List<MemberDTO> selectJoList(int jno);
 
+	// ** pwUpdate
+	int pwUpdate(MemberDTO dto);
 }

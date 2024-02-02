@@ -70,6 +70,27 @@ select * from member;
 	
 select * from jo;
 
+
+update member set id='banana', rid='apple', birthday='1999-09-09' where id='17';
+update member set id='green', rid='apple', birthday='1999-09-09' where id='18';
+update member set birthday='1992-10-11', id='simsim916' ,rid='juh94' where name='최문석';
+update member set birthday='1994-12-17', id='bong', rid='sumiii' where name='봉민지';
+update member set birthday='1994-10-13', id='juh94' ,rid='simsim916' where name='주용현';
+update member set birthday='1995-07-22', id='sumiii', rid='juh94' where name='김수미';
+update member set birthday='1998-09-19', id='agr4005',rid='LeeMocha' where name='김수빈';
+update member set id='LeeMocha',birthday='1990-12-17', rid='agr4005' where name='이정혁';
+update member set id='jyw97',rid='LeeMocha',birthday='1997-01-10' where name='전예원';
+update member set id='kso', rid='img4029', birthday='1995-08-08' where id='3';
+update member set id='lsw', rid='kso' , birthday='1994-06-17' where id='11' ;
+update member set id='KCM', rid='img4029',birthday='1988-12-19' where name='김창민';
+update member set id='img4029', rid='kso' , birthday='1993-04-18' where id='10';
+update member set id='bamboo7', rid='merci', birthday='1994-10-22' where name='최승삼' ;
+update member set id='merci', rid='bamboo7', birthday='1992-03-15' where name='이지현' ;
+update member set id='jjang9', rid='bamboo7', birthday='1999-09-29' where name='장근정' ;
+update member set id='dungdungik', rid='dbrghl23', birthday='1994-02-23' where name='백승현' ;
+
+
+
 ==============================================
 
 3) Java Code : 프로젝트 Web02
@@ -104,22 +125,28 @@ select * from jo;
 		-> 실패 : index.jsp ( message : 탈퇴 실패 !!! )
  
 =========================================================
+** Update File
+1) Table
+=>file 정보(경로와 파일명) 보관 컬럼 추가 : uploadfile varchar(50)	default 'basicman1.jpg'
+	ALTER TABLE MEMBER ADD UPLOADFILE VARCHAR(50) DEFAULT 'BASICMAN1.JPG';
+	
+=> 기본값 넣어놓기
+UPDATE MEMBER SET UPLOADFILE = 'AAA.GIF' WHERE JNO='1';
+UPDATE MEMBER SET UPLOADFILE = 'BBB.GIF' WHERE JNO='2';
+UPDATE MEMBER SET UPLOADFILE = 'CCC.GIF' WHERE JNO='3';
+UPDATE MEMBER SET UPLOADFILE = 'DDD.GIF' WHERE JNO='4';
+UPDATE MEMBER SET UPLOADFILE = 'XXX.GIF' WHERE JNO='7';
 
-update member set id='banana', rid='apple', birthday='1999-09-09' where id='17';
-update member set id='green', rid='apple', birthday='1999-09-09' where id='18';
-update member set birthday='1992-10-11', id='simsim916' ,rid='juh94' where name='최문석';
-update member set birthday='1994-12-17', id='bong', rid='sumiii' where name='봉민지';
-update member set birthday='1994-10-13', id='juh94' ,rid='simsim916' where name='주용현';
-update member set birthday='1995-07-22', id='sumiii', rid='juh94' where name='김수미';
-update member set birthday='1998-09-19', id='agr4005',rid='LeeMocha' where name='김수빈';
-update member set id='LeeMocha',birthday='1990-12-17', rid='agr4005' where name='이정혁';
-update member set id='jyw97',rid='LeeMocha',birthday='1997-01-10' where name='전예원';
-update member set id='kso', rid='img4029', birthday='1995-08-08' where id='3';
-update member set id='lsw', rid='kso' , birthday='1994-06-17' where id='11' ;
-update member set id='KCM', rid='img4029',birthday='1988-12-19' where name='김창민';
-update member set id='img4029', rid='kso' , birthday='1993-04-18' where id='10';
-update member set id='bamboo7', rid='merci', birthday='1994-10-22' where name='최승삼' ;
-update member set id='merci', rid='bamboo7', birthday='1992-03-15' where name='이지현' ;
-update member set id='jjang9', rid='bamboo7', birthday='1999-09-29' where name='장근정' ;
-update member set id='dungdungik', rid='dbrghl23', birthday='1994-02-23' where name='백승현' ;
+=> IDE(이클립스)에 준비
+	wepapp/resources/uploadImages/에 위의 파일들을 복사
+
+2) Java Code
+
+2.1) List 출력하기
+=> memberList, ~DTO, DAO
+
+2.2) 입력, 수정하기
+=> joinForm, updateForm
+
+
 

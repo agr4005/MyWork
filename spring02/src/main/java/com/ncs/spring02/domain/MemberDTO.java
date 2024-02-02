@@ -1,5 +1,7 @@
 package com.ncs.spring02.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,7 +39,13 @@ public class MemberDTO {
 	private String info;
 	private double point;
 	private String birthday;
-	private String rid;	//추천인
+	private String rid;		//추천인
+	private String uploadfile;	//	Table 보관용(File_Name)
+	private MultipartFile uploadfilef;
+	//	=> form의 Upload_File의 정보를 전달받기 위한 컬럼
+	//	MultipartFile (인터페이스) -> CommonsMultipartFile
+	//	-> pom.xml에 dependency 추가
+	//	-> 구현체 CommonsMultipartFile 생성 (servlet~.xml)
 	
 	// 2) getter/setter
 	// 3) toString

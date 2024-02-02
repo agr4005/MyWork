@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>** Update Form **</title>
+		<link rel="stylesheet" type="text/css"
+	 href="/spring02/resources/myLib/boardcss.css">
 </head>
 <body>
 <h2>** Web MVC2 Update Form **</h2>
@@ -18,11 +21,12 @@
 		disable : 읽기만 가능하나 서버로 전송되지도 않음.
 		
 		 -->
+	<%-- PasswordEncoder 적용후 분리함 
 	</tr>
 	<tr height="40">
 		<td bgcolor="gray"><label for="password">Password</label></td>
 		<td><input type="password" name="password" id="password" value="${requestScope.apple.password}" size="20"></td>
-	</tr>
+	</tr> --%>
 	<tr height="40">
 		<td bgcolor="gray"><label for="name">Name</label></td>
 		<td><input type="text" name="name" id="name" value="${requestScope.apple.name}" size="20"></td>
@@ -66,10 +70,11 @@
 </table>
 </form>
 <br><hr>
+&nbsp;<a href="pwUpdate">Password수정</a>&nbsp;
 <c:if test="${!empty requestScope.message}">
 => ${requestScope.message}<br><hr>
 </c:if>	
-
+<hr>
 &nbsp;<a href="/spring02/home">Home</a>&nbsp;
 &nbsp;<a href="javascript:history.go(-1)">이전으로</a>&nbsp;
 
