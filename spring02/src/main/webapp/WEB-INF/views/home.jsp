@@ -4,7 +4,6 @@
 <html>
 <head>
 	<title>Home</title>
-	
 		<link rel="stylesheet" type="text/css"
 	 href="/spring02/resources/myLib/boardcss.css">
 	 <style>
@@ -26,7 +25,7 @@
 </c:if>
    
    <hr>
-	<img alt="mainImage" src="/spring02/resources/images/jerry01.gif" width="300" height="200">
+	<img alt="mainImage" src="/spring02/resources/images/white01.gif" width="300" height="200">
 	<hr>
 	<!-- Login 전 -->
 	<c:if test="${empty sessionScope.loginID}">
@@ -44,5 +43,9 @@
 	&nbsp; <a href="member/memberList">MList</a> &nbsp;	
 	&nbsp; <a href="jo/joList">JList</a> &nbsp;	
 	&nbsp; <a href="board/boardList">BList</a> &nbsp;	
+	
+	&nbsp; <a href="bcrypt">BCrypt</a> &nbsp;	
+	
+	
 </body>
 </html>

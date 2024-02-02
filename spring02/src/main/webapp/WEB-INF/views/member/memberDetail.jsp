@@ -10,7 +10,7 @@
 <body>
 <h2>** Web_MVC2 Member Detail **</h2>
 
-<table style="width: 300px; height: 300px; text-align: center;" >
+<table style="width: 300px; height: 300px; text-align: center;" border="1">
 <c:set var="ss" value="${requestScope.apple}"/>
 <c:if test="${!empty requestScope.apple}">
 	<tr>
@@ -48,6 +48,11 @@
 	<tr>
 		<td bgcolor="green">추천인</td>
 		<td>${ss.rid}</td>
+	</tr>
+	<tr>
+		<td bgcolor="green">Image</td>
+		<td><img alt="myImage" width="50" height="70"
+			src="/spring02/resources/uploadImages/${ss.uploadfile}"></td>
 	</tr>
 </c:if>
 </table>

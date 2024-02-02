@@ -48,10 +48,17 @@ public class MemberServiceImpl implements MemberService {
 			return dao.delete(id);
 		}
 		
+	// ** selectJoList
 		@Override
 		public List<MemberDTO> selectJoList(int jno) {
 			return dao.selectJoList(jno);
 		}
-
+		
+	// ** pwUpdate
+		@Override
+		public int pwUpdate(MemberDTO dto) {
+			return dao.pwUpdate(dto);
+		}
+		
 
 }
