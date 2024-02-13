@@ -149,8 +149,4 @@ public class BoardController {
 		
 	}//delete
 	
-	
-	
-	
-	
 }	//class

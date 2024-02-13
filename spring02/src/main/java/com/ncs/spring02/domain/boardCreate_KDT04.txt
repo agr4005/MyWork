@@ -96,9 +96,3 @@ select seq, id, title, root, step, indent from board order by root desc, step as
    3댓글	-> root: 원글의 seq, step: 1, 				indent: 1
 	
 => 댓글 입력 Form과 컨트롤러의 매핑메서드, 메뉴추가
-
-
-
-
-
-

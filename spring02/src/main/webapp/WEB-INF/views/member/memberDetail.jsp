@@ -14,7 +14,7 @@
 <c:set var="ss" value="${requestScope.apple}"/>
 <c:if test="${!empty requestScope.apple}">
 	<tr>
-		<td bgcolor="green">I D </td>
+		<td bgcolor="green">I D</td>
 		<td>${ss.id}</td>
 	</tr>
 	<tr>
