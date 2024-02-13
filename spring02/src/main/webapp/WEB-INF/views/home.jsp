@@ -25,7 +25,7 @@
 </c:if>
    
    <hr>
-	<img alt="mainImage" src="/spring02/resources/images/white01.gif" width="300" height="200">
+	<img alt="mainImage" src="/spring02/resources/images/jerry01.gif" width="300" height="200">
 	<hr>
 	<!-- Login 전 -->
 	<c:if test="${empty sessionScope.loginID}">

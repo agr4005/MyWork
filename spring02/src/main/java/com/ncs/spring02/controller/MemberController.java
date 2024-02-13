@@ -291,7 +291,7 @@ public class MemberController {
 	      
 	      // 1.2) realPath 를 이용해서 물리적저장위치 (file1) 확인
 	      if ( realPath.contains(".eclipse.") ) // 개발중
-	          realPath ="E:\\javaksb\\MyWork\\spring02\\src\\main\\webapp\\resources\\uploadImages\\";
+	          realPath ="C:\\MTest\\MyWork\\spring02\\src\\main\\webapp\\resources\\uploadImages\\";
 	      else realPath ="resources\\uploadImages\\";
 	      
 	      // 1.3) 폴더 만들기 (없을수도 있음을 가정, File 실습)
@@ -317,7 +317,7 @@ public class MemberController {
 	      file = new File(realPath+"basicman1.jpg"); // uploadImages 폴더에 화일존재 확인을 위함
 	      if ( !file.isFile() ) { // 존재하지않는 경우
 	         String basicImagePath 
-	               = "E:\\javaksb\\MyWork\\spring02\\src\\main\\webapp\\resources\\images\\basicman1.jpg";
+	               = "C:\\MTest\\MyWork\\spring02\\src\\main\\webapp\\resources\\images\\basicman1.jpg";
 	         FileInputStream fi = new FileInputStream(new File(basicImagePath));
 	         // => basicImage 읽어 파일 입력바이트스트림 생성
 	         FileOutputStream fo = new FileOutputStream(file); 

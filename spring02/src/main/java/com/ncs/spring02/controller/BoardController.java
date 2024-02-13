@@ -1,4 +1,4 @@
-package com.ncs.spring02.controller;
+ package com.ncs.spring02.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,6 +46,7 @@ public class BoardController {
 	    //	-> 부모글의 step, indent : 1씩 증가
 	    //	=> Sql 처리
 	    //	- replyInsert, step의 Update
+	    dto.setRoot(dto.getRoot());
 	    dto.setStep(dto.getStep()+1);
 	    dto.setIndent(dto.getIndent()+1);
 	    
