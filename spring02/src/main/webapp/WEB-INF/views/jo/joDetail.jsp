@@ -47,7 +47,7 @@
 		<c:if test="${!empty requestScope.banana}">
 			<c:forEach var="ss" items="${requestScope.banana}">
 			<tr>
-			<td>${ss.id}</td><td>${ss.password}</td><td>${ss.name}</td><td>${ss.age}</td><td>${s.jno}</td>
+			<td>${ss.id}</td><td>${ss.password}</td><td>${ss.name}</td><td>${ss.age}</td><td>${ss.jno}</td>
 			<td>${ss.info}</td><td>${ss.point}</td><td>${ss.birthday}</td><td>${ss.rid}</td>
 			</tr>
 			</c:forEach>
@@ -69,8 +69,8 @@
 => ${requestScope.message}<br><hr>
 </c:if>	
 
-&nbsp;<a href="/spring02/jo/joUpdate?jno=${ss.jno}">[조 수정]</a>&nbsp;
-&nbsp;<a href="/spring02/jo/delete?jno=${ss.jno}">[조 삭제]</a>&nbsp;
+&nbsp;<a href="/spring02/jo/joUpdate?jno=${s.jno}">[조 수정]</a>&nbsp;
+&nbsp;<a href="/spring02/jo/delete?jno=${s.jno}">[조 삭제]</a>&nbsp;
 &nbsp;<a href="/spring02/home">[Home]</a>&nbsp;
 &nbsp;<a href="javascript:history.go(-1)">[이전으로]</a>&nbsp;
 
