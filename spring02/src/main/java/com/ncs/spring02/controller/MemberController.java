@@ -285,9 +285,16 @@ public class MemberController {
 	      
 	      // 1.2) realPath 를 이용해서 물리적저장위치 (file1) 확인
 	      if ( realPath.contains(".eclipse.") ) // 개발중
+<<<<<<< HEAD
 	          realPath ="E:\\javaksb\\MyWork\\spring02\\src\\main\\webapp\\resources\\uploadImages\\";
 	      else realPath ="E:\\javaksb\\IDESet\\apache-tomcat-9.0.85\\webapps\\spring02\\resources\\uploadImages\\";
 
+=======
+	          realPath ="C:\\MTest\\MyWork\\spring02\\src\\main\\webapp\\resources\\uploadImages\\";
+	      else realPath ="resources\\uploadImages\\";
+
+	      
+>>>>>>> branch 'master' of https://github.com/agr4005/MyWork.git
 	      // 1.3) 폴더 만들기 (없을수도 있음을 가정, File 실습)
 	      // => File type 객체 생성 : new File("경로");
 	      // => file.exists()
