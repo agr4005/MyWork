@@ -44,7 +44,7 @@ public class DBConnection {
 			// => localhost -> 동일값(ip주소) @127.0.0.1
 			
 			Connection cn = DriverManager.getConnection(url, "root", "mysql");
-			System.out.println("** DB Connection 성공 **");
+//			System.out.println("** DB Connection 성공 **");
 			return cn;
 		} catch (Exception e) {
 			System.out.println("** DB Connection Exception => " + e.toString());

@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ncs.spring02.domain.BoardDTO;
-import com.ncs.spring02.model.BoardDAO;
 
 import mapperInterface.BoardMapper;
 import pageTest.Criteria;
+import pageTest.SearchCriteria;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -19,14 +19,27 @@ public class BoardServiceImpl implements BoardService{
 	//	=> Mybatis 적용
 	BoardMapper mapper;
 	
+	// ** Board Check List
+		@Override
+		public List<BoardDTO> bCheckList(SearchCriteria cri) {
+			return mapper.bCheckList(cri);
+		}
+		
+		@Override
+		public int bCheckRowsCount(SearchCriteria cri) {
+			return mapper.bCheckRowsCount(cri);
+		}
+	
 	//** Board_Paging
 		@Override
-		public List<BoardDTO> bPageList(Criteria cri) {
-			return mapper.bPageList(cri);
+		public List<BoardDTO> bPageList(SearchCriteria cri) {
+			// return mapper.bPageList(cri); //ver01
+			return mapper.bSearchList(cri);	 //ver02
 		}
 		@Override
-		public int totalRowsCount(Criteria cri) {
-			return mapper.totalRowsCount(cri);
+		public int totalRowsCount(SearchCriteria cri) {
+			// return mapper.totalRowsCount(cri);	//ver01
+			 return mapper.bSearchRowsCount(cri); 	//ver02
 		}
 
 	//	** 답글등록
