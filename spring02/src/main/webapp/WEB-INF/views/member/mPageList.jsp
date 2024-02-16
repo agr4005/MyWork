@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>** Spring MVC2 BoardPageList **</title>
+<title>** Spring MVC2 MemberPageList **</title>
 	<link rel="stylesheet" type="text/css"
 	 href="/spring02/resources/myLib/boardcss.css">
 <script>
@@ -25,23 +25,11 @@ function enterKey() {
 // => href, replace('...'), reload() 
 
 function searchDB() {
-	self.location='bPageList'
-		 		  /* +'${pageMaker.makeQuery(1)}'  
-       			  => 하나의 jsp 문서로 다양한 요청을 처리하기위해 쿼리스트링에 url 을 포함했기 때문에
-        	      첫 요청에서는  makeQuery 메서드 사용할수 없음 */
+	self.location='mPageList'
         	     + '?currPage=1&rowsPerPage=5'
 				 +'&searchType='+document.getElementById('searchType').value
 				 +'&keyword='+document.getElementById('keyword').value;
 }
-//=> 검색조건 입력 후 첫 Page 요청
-//이때는 서버에 searchType, keyword 가 전달되기 이전이므로 
-//searchType, keyword 가 없는 makeQuery 메서드사용
-//=> self.location="bcrilist?currPage=?????" : 해당 요청을 서버로 전달    
-
-//** JS 코드 내부에서 el Tag 사용시 주의사항
-//=> JS 코드의 스트링 내에서 사용한 el Tag 는 JSP 가 처리해주므로   
-//사용가능 하지만, 이 스크립트가 외부 문서인 경우에는 처리해주지 않으므로 주의
-//이 코드를 외부문서로 작성하면 "${pageMaker.makeQuery(1)}" 이 글자 그대로 적용되어 404 발생 
 
 //	2. searchType을 '전체'로 변경하면 keyword는 clear
 function keywordClear() {
@@ -49,7 +37,7 @@ function keywordClear() {
 		document.getElementById('keyword').value ='';
 }
 
-//	** Board Check_List
+//	** Member Check_List
 function checkClear() {
 	
 	// document.querySelectorAll('.clear').checked=false;
@@ -73,7 +61,7 @@ function checkClear() {
 </script>
 </head>
 <body>
-<h2>** Spring MVC2 BoardPageList **</h2>
+<h2>** Spring MVC2 MemberPageList **</h2>
 <hr>
 <c:if test="${!empty requestScope.message}">
 => ${requestScope.message}<br><hr>
@@ -81,18 +69,19 @@ function checkClear() {
 <div id="searchBar">
 	<select name="searchType" id="searchType" onchange="keywordClear()">
 	<option value="all" ${pageMaker.cri.searchType =='all' ? 'selected' : ''}>전체</option>
-	<option value="title" ${pageMaker.cri.searchType =='title' ? 'selected' : ''}>Title</option>
-	<option value="content" ${pageMaker.cri.searchType =='content' ? 'selected' : ''}>Content</option>
-	<option value="id" ${pageMaker.cri.searchType =='id' ? 'selected' : ''}>ID(글쓴이)</option>
-	<option value="regdate" ${pageMaker.cri.searchType =='regdate' ? 'selected' : ''}>RegDate</option>
-	<option value="tc" ${pageMaker.cri.searchType =='tc' ? 'selected' : ''}>Title or Content</option>
+	<option value="id" ${pageMaker.cri.searchType =='id' ? 'selected' : ''}>I D</option>
+	<option value="name" ${pageMaker.cri.searchType =='name' ? 'selected' : ''}>이 름</option>
+	<option value="age" ${pageMaker.cri.searchType =='age' ? 'selected' : ''}>연 령</option>
+	<option value="info" ${pageMaker.cri.searchType =='info' ? 'selected' : ''}>정 보</option>
+	<option value="birthday" ${pageMaker.cri.searchType =='birthday' ? 'selected' : ''}>생년월일</option>
+	<option value="rid" ${pageMaker.cri.searchType =='rid' ? 'selected' : ''}>추천인</option>
 	</select>
 	<input type="text" name="keyword" id="keyword" value="${pageMaker.cri.keyword}" placeholder="검색어 입력" onkeypress="enterKey()">
 	<button id="searchBtn" onclick="searchDB()">Search</button>
 	<hr>
 	<!-- CheckBox Test -->
-	<form action="bCheckList" method="get">
-		<b>I D : </b>
+	<form action="mCheckList" method="get">
+		<b>조 번호 : </b>
 		<!-- check 의 선택한 값 유지를 위한 코드 -->
       <c:set var="ck1" value="false" />
       <c:set var="ck2" value="false" />
@@ -100,18 +89,18 @@ function checkClear() {
       <c:set var="ck4" value="false" />
       <c:set var="ck5" value="false" />
       <c:forEach  var="id" items="${pageMaker.cri.check}" >
-         <c:if test="${id=='simsim916'}"> <c:set var="ck1" value="true" /> </c:if>
-         <c:if test="${id=='agr4005'}"> <c:set var="ck2" value="true" /> </c:if>
-         <c:if test="${id=='bamboo7'}"> <c:set var="ck3" value="true" /> </c:if>
-         <c:if test="${id=='kso'}"> <c:set var="ck4" value="true" /> </c:if>
-         <c:if test="${id=='admin'}"> <c:set var="ck5" value="true" /> </c:if>
+         <c:if test="${jno==1}"> <c:set var="ck1" value="true" /> </c:if>
+         <c:if test="${jno==2}"> <c:set var="ck2" value="true" /> </c:if>
+         <c:if test="${jno==3}"> <c:set var="ck3" value="true" /> </c:if>
+         <c:if test="${jno==4}"> <c:set var="ck4" value="true" /> </c:if>
+         <c:if test="${jno==7}"> <c:set var="ck5" value="true" /> </c:if>
       </c:forEach>
       <!-- --------------------------------- -->	
-		<input type="checkbox" name="check" class="clear" value="simsim916" ${ck1 ? 'checked':''}>최문석&nbsp;
-		<input type="checkbox" name="check" class="clear" value="agr4005"${ck2 ? 'checked':''}>김수빈&nbsp;
-		<input type="checkbox" name="check" class="clear" value="bamboo7"${ck3 ? 'checked':''}>최승삼&nbsp;
-		<input type="checkbox" name="check" class="clear" value="kso"${ck4 ? 'checked':''}>김수옥&nbsp;
-		<input type="checkbox" name="check" class="clear" value="admin"${ck5 ? 'checked':''}>관리자&nbsp;
+		<input type="checkbox" name="check" class="clear" value="1" ${ck1 ? 'checked':''}>Business&nbsp;
+		<input type="checkbox" name="check" class="clear" value="2"${ck2 ? 'checked':''}>static&nbsp;
+		<input type="checkbox" name="check" class="clear" value="3"${ck3 ? 'checked':''}>칭찬해조&nbsp;
+		<input type="checkbox" name="check" class="clear" value="4"${ck4 ? 'checked':''}>카톡조&nbsp;
+		<input type="checkbox" name="check" class="clear" value="7"${ck5 ? 'checked':''}>칠면조&nbsp;
 		<input type="submit" value="Search">&nbsp;
 		<input type="reset" value="Clear" onclick="return checkClear()"><br><hr>
 	</form>
@@ -120,30 +109,18 @@ function checkClear() {
 <br>
 <table border="1" style="width:100%">
 <tr bgcolor="DeepSkyBlue">
-			<th>Seq</th><th>Title</th><th>ID</th><th>RegDate</th><th>조회수</th>
+			<th>ID</th><th>Name</th><th>Age</th><th>Jno</th><th>Info</th>
+			<th>Point</th><th>Birthday</th><th>추천인</th><th>Image</th>
+			<!-- <th>Password</th> -->
 		</tr>
 		
 		<c:if test="${!empty requestScope.banana}">
-			<c:forEach var="b" items="${requestScope.banana}">
+			<c:forEach var="s" items="${requestScope.banana}">
 			<tr>
-			<td>${b.seq}</td>
-			<td>
-			<!-- 답글 등록 후 Title 출력전에 들여쓰기 추가 -->
-			<c:if test="${b.indent>0}">
-				<c:forEach begin="1" end="${b.indent}">
-					<span>&nbsp;&nbsp;</span>
-				</c:forEach>
-				<span style="color:blue;"><b>re..</b></span>
-			</c:if>
-			
-			<c:if test="${!empty loginID}">
-			<a href="detail?jCode=D&seq=${b.seq}">${b.title}</a>		
-			</c:if>
-			<c:if test="${empty loginID}">
-			${b.title}			
-			</c:if>
-			</td>
-			<td>${b.id}</td><td>${b.regdate}</td><td>${b.cnt}</td>
+			<td>${s.id}</td><td>${s.name}</td><td>${s.age}</td><td>${s.jno}</td>
+			<td>${s.info}</td><td>${s.point}</td><td>${s.birthday}</td><td>${s.rid}</td>
+			<td><img alt="myImage" width="50" height="70"
+			src="/spring02/resources/uploadImages/${s.uploadfile}"></td>
 			</tr>
 			</c:forEach>
 		</c:if>
@@ -157,19 +134,7 @@ function checkClear() {
 </table>
 <br>
 <div align="center">
-<!-- ** Paging Block ** 
-   => ver01 : QueryString 수동 입력 -> 자동생성 makeQuery 메서드 적용
-   => ver02 : makeQuery 메서드 -> searchQuery 메서드로 변경 -->
-       <!-- 1) FirstPage, Prev  
-     => OLD
-     <a href="bPageList?currPage=1&rowsPerPage=5">First Page</a>&nbsp;
-     <a href="bPageList?currPage=${pageMaker.spageNo-1}&rowsPerPage=5">&LT;</a>&nbsp;&nbsp;  -->
-     
-      <!-- ver01:  makeQuery 메서드 적용 
-      		 <a href="bPageList${pageMaker.makeQuery(1)}">&#9664;</a>&nbsp;
-      		<a href="bPageList${pageMaker.makeQuery(pageMaker.spageNo-1)}">&#8678;</a>&nbsp;&nbsp; 
-      	   ver02 : makeQuery 메서드 -> searchQuery 메서드로 변경 -->
-     <c:choose>
+    <c:choose>
       <c:when test="${pageMaker.prev && pageMaker.spageNo > 1}">
       		<a href="${pageMaker.searchQuery(1)}">&#9664;</a>&nbsp;
       		<a href="${pageMaker.searchQuery(pageMaker.spageNo-1)}">&#8678;</a>&nbsp;&nbsp;
@@ -179,8 +144,7 @@ function checkClear() {
    	  </c:otherwise>    
      </c:choose>
      
-<!-- 2) Display PageNo 
-	=> currPage 제외한 PageNo에만 a Tag 적용 -->
+	<!-- 2) PageNo -->
 	<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
 		<c:if test="${i == pageMaker.cri.currPage}">
 			<font color="Orange" size="5"><b>${i}</b></font>&nbsp;
@@ -205,9 +169,6 @@ function checkClear() {
 <br>
 <hr>
 
-<c:if test="${!empty loginID}">
-&nbsp;<a href="boardInsert">글쓰기</a>&nbsp;
-</c:if>
 &nbsp;<a href="/spring02/home">Home</a>&nbsp;
 &nbsp;<a href="javascript:history.go(-1)">이전으로</a>&nbsp;
 

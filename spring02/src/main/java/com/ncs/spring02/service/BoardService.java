@@ -3,8 +3,6 @@ package com.ncs.spring02.service;
 import java.util.List;
 
 import com.ncs.spring02.domain.BoardDTO;
-
-import pageTest.Criteria;
 import pageTest.SearchCriteria;
 
 public interface BoardService {

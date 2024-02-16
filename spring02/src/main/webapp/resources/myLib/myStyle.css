@@ -12,7 +12,7 @@
 /* 모든 a Tag	 */
 a { color: Gray; text-decoration: none; font-weight:bold; } 
 a:hover { color:DimGray; font-size:1.2em; cursor:pointer; }
-a:active { color:Blue; }
+a:active { color:red; }
 
 /* Error Message */
 .eMessage {

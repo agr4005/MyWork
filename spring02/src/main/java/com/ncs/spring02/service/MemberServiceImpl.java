@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.ncs.spring02.domain.MemberDTO;
 import com.ncs.spring02.domain.JoDTO;
 import com.ncs.spring02.domain.MemberDTO;
 
 import mapperInterface.MemberMapper;
+import pageTest.Criteria;
+import pageTest.SearchCriteria;
 
 //	** Interface 자동완성
 //	** Alt + Shift + T
@@ -47,6 +50,25 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberMapper mapper;
+	
+	@Override
+	public List<MemberDTO> mCheckList(SearchCriteria cri) {
+		return mapper.mCheckList(cri);
+	}
+	@Override
+	public int mCheckRowsCount(SearchCriteria cri) {
+		return mapper.mCheckRowsCount(cri);
+	}
+	
+	@Override
+	public List<MemberDTO> mPageList(SearchCriteria cri) {
+		return mapper.mSearchList(cri);
+	}
+	
+	@Override
+	public int totalRowsCount(SearchCriteria cri) {
+		return mapper.mSearchRowsCount(cri);
+	}
 	
 	// ** selectList
 		@Override
