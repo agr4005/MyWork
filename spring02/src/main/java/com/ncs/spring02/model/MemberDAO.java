@@ -59,7 +59,7 @@ public class MemberDAO {
 		}
 	} //selectList
 	
-	// ** selectOne
+	// ** selectOne 
 	// => 기본자료형 매개변수 _ Call By Value
 	public MemberDTO selectOne(String id) {
 	  	sql = "SELECT * FROM member WHERE id=?";
@@ -87,7 +87,40 @@ public class MemberDAO {
 	  		System.out.println("** selectOne Exception => " + e.toString());
 	  		return null;
 	  	}
-	} //selectOne
+	} //selectOne 
+	
+	//	** JUnit Test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//	=> Mybatis 참조형 매개변수 사용 비교인자
+	
+	public MemberDTO selectDTO(MemberDTO dto) {
+		sql = "SELECT * FROM member WHERE id=?";
+		try {
+			pst = cn.prepareStatement(sql);
+			pst.setString(1, dto.getId());
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				dto.setId(rs.getString(1));
+				dto.setPassword(rs.getString(2));
+				dto.setName(rs.getString(3));
+				dto.setAge(rs.getInt(4));
+				dto.setJno(rs.getInt(5));
+				dto.setInfo(rs.getString(6));
+				dto.setPoint(rs.getDouble(7));
+				dto.setBirthday(rs.getString(8));
+				dto.setRid(rs.getString(9));
+				dto.setUploadfile(rs.getString(10));
+				return dto;
+			} else {
+				return null;
+			}
+		}catch (Exception e) {
+			System.out.println("** selectOne Exception => " + e.toString());
+			return null;
+		}
+	} //selectDTO
+	
+//	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 	
 	// ** insert
 	// => 모든 컬럼 입력

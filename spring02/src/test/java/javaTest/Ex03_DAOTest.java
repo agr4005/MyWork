@@ -1,10 +1,8 @@
 package javaTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.Test;
-
 import com.ncs.spring02.domain.MemberDTO;
 import com.ncs.spring02.model.MemberDAO;
 
@@ -31,8 +29,9 @@ public class Ex03_DAOTest {
 		assertNotNull(dto);
 		System.out.println("** dto => " + dto);
 	}
-	@Test
+	
 	//	2) Insert 정확성
+	@Test
 	public void insertTest() {
 		dto.setId("junit");
 		dto.setPassword("12345");
@@ -46,7 +45,5 @@ public class Ex03_DAOTest {
 		//	=> 성공: 1, 실패: 0
 		assertEquals(dao.insert(dto), 1);
 	}
-	
-	
 	
 }

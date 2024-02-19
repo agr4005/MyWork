@@ -15,7 +15,7 @@
 <hr>
 
 <c:if test="${!empty sessionScope.loginName}">
-	${sessionScope.loginName}님 안녕하세요 ~~<br>
+	<div id="container"><h1 class="style-2">${sessionScope.loginName}님 안녕하세요 ~~<br></h1></div>
 </c:if>
   <c:if test="${!empty requestScope.message}" >
        ${requestScope.message}<br>
@@ -41,10 +41,10 @@
 
 	<c:if test="${!empty sessionScope.loginID}">
        <div class="menu align-center expanded text-center SMN_effect-8">
-        <a href="member/detail?jCode=D" data-hover="내정보" style="width: 120"><span style="width: 120">내정보</span></a>
-        <a href="member/detail?jCode=U" data-hover="내정보수정" style="width: 120"><span style="width: 120">내정보수정</span></a>
+        <a href="member/detail?jCode=D" data-hover="My_Info" style="width: 120"><span style="width: 120">내정보</span></a>
+        <a href="member/detail?jCode=U" data-hover="Update" style="width: 120"><span style="width: 120">내정보수정</span></a>
         <a href="member/logout" data-hover="Logout" style="width: 120"><span style="width: 120">Logout</span></a>
-        <a href="member/delete" data-hover="탈퇴" style="width: 120"><span style="width: 120">탈퇴</span></a>
+        <a href="member/delete" data-hover="Delete" style="width: 120"><span style="width: 120">탈퇴</span></a>
       </div>
 <!-- 	&nbsp; <a href="member/detail?jCode=D" >내정보</a> &nbsp;	
 	&nbsp; <a href="member/detail?jCode=U" >내정보수정</a> &nbsp;	
