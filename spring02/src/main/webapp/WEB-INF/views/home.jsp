@@ -10,8 +10,8 @@
 </style>
 </head>
 <body>
-<h2>** Hello Spring_MVC02 !!! **</h2>
-<P>* Home_time: ${serverTime}. </P>
+<div id="container"><h1 class="style-1">Hello Spring_MVC02</h1></div>
+<div id="container"><h1 class="style-1">Home_time: ${serverTime}</h1></div>
 <hr>
 
 <c:if test="${!empty sessionScope.loginName}">
@@ -21,7 +21,7 @@
        ${requestScope.message}<br>
    </c:if>
 <c:if test="${empty sessionScope.loginID && empty requestScope.message}">
-	로그인 후 이용하세요 ~~<br>
+<div id="container"><h1 class="style-2">로그인 후 이용하세요 ~~<br></h1></div>
 </c:if>
    
    <hr>
@@ -29,49 +29,37 @@
 	<hr>
 	
 	<!-- Login 전 -->
-	<div class="back color-8">
-    <div class="row columns">
 	<c:if test="${empty sessionScope.loginID}">
-	 <ul class="menu align-center expanded text-center SMN_effect-8">
-      <li><a href="member/loginForm" data-hover="LoginF"><span>LoginF</span></a>
-      </li>
-       <li><a href="member/joinForm" data-hover="JoinF"><span>JoinF</span></a>
-       </li>
-	</ul>    
+	 <div class="menu align-center expanded text-center SMN_effect-8">
+      <a href="member/loginForm" data-hover="LoginF" style="width: 120"><span style="width: 120">LoginF</span></a>
+       <a href="member/joinForm" data-hover="JoinF"style="width: 120"><span style="width: 120">JoinF</span></a>
+	</div>    
 <!-- 	&nbsp; <a href="member/loginForm" >LoginF</a> &nbsp;	
 	&nbsp; <a href="member/joinForm" >JoinF</a> &nbsp; -->
-	</c:if>
-	</div>
-	</div> 
+	</c:if>	 
 	<!-- Login 후 -->
-	<div class="back color-8">
-    <div class="row columns">
+
 	<c:if test="${!empty sessionScope.loginID}">
-       <ul class="menu align-center expanded text-center SMN_effect-8">
-        <li><a href="member/detail?jCode=D" data-hover="About"><span>내정보</span></a></li>
-        <li><a href="member/detail?jCode=U" data-hover="Gallery"><span>내정보수정</span></a></li>
-        <li><a href="member/logout" data-hover="Notes"><span>Logout</span></a></li>
-        <li><a href="member/delete" data-hover="Contact"><span>탈퇴</span></a></li>
-      </ul>
+       <div class="menu align-center expanded text-center SMN_effect-8">
+        <a href="member/detail?jCode=D" data-hover="내정보" style="width: 120"><span style="width: 120">내정보</span></a>
+        <a href="member/detail?jCode=U" data-hover="내정보수정" style="width: 120"><span style="width: 120">내정보수정</span></a>
+        <a href="member/logout" data-hover="Logout" style="width: 120"><span style="width: 120">Logout</span></a>
+        <a href="member/delete" data-hover="탈퇴" style="width: 120"><span style="width: 120">탈퇴</span></a>
+      </div>
 <!-- 	&nbsp; <a href="member/detail?jCode=D" >내정보</a> &nbsp;	
 	&nbsp; <a href="member/detail?jCode=U" >내정보수정</a> &nbsp;	
 	&nbsp; <a href="member/logout" >Logout</a> &nbsp;
 	&nbsp; <a href="member/delete" >탈퇴</a> &nbsp;	 -->
 	</c:if>
-	</div>
-	</div>
+
 	<br><hr>
-	<div class="back color-8">
-    <div class="row columns">
-	 <ul class="menu align-center expanded text-center SMN_effect-8">
-        <li><a href="member/memberList" data-hover="MList"><span>MList</span></a></li>
-        <li><a href="jo/joList" data-hover="JList"><span>JList</span></a></li>
-        <li><a href="board/boardList" data-hover="BList"><span>BList</span></a></li>
-        <li><a href="bcrypt" data-hover="BCrypt"><span>BCrypt</span></a></li>
-        <li><a href="board/bPageList" data-hover="BPage"><span>BPage</span></a></li>
-        <li><a href="member/mPageList" data-hover="MPage"><span>MPage</span></a></li>
-      </ul>
-      </div>
+	 <div class="menu align-center expanded text-center SMN_effect-8">
+        <a href="member/memberList" data-hover="MList" style="width: 120"><span style="width: 120">MList</span></a>
+        <a href="jo/joList" data-hover="JList" style="width: 120"><span style="width: 120">JList</span></a>
+       <a href="board/boardList" data-hover="BList" style="width: 120"><span style="width: 120">BList</span></a>
+       <a href="bcrypt" data-hover="BCrypt" style="width: 120"><span style="width: 120">BCrypt</span></a>
+       <a href="board/bPageList" data-hover="BPage" style="width: 120"><span style="width: 120">BPage</span></a>
+       <a href="member/mPageList" data-hover="MPage" style="width: 120"><span style="width: 120">MPage</span></a>
       </div>
 <!-- 	&nbsp; <a href="member/memberList" >MList</a> &nbsp;	
 	&nbsp; <a href="jo/joList" >JList</a> &nbsp;	
