@@ -11,7 +11,7 @@
 </head>
 <body>
 <div id="container"><h1 class="style-1">Hello Spring_MVC02</h1></div>
-<div id="container"><h1 class="style-1">Home_time: ${serverTime}</h1></div>
+<div id="container"><h1 class="style-1">${serverTime}</h1></div>
 <hr>
 
 <c:if test="${!empty sessionScope.loginName}">
