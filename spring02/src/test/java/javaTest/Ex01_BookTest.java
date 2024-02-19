@@ -1,9 +1,8 @@
 package javaTest;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
-import org.junit.Test;
 
 //	** Book class
 //	=> 멤버필드 3개 (author, title, price) 정의, 모두 초기화하는 생성자

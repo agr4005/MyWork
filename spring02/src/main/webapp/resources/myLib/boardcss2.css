@@ -13,10 +13,11 @@ Normalizing
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  text-align: center;
 }
 
 body {
-  font-family: "Poor Story", system-ui;
+  font-family: "Poor Story", sans-serif;
   font-family: "Pacifico", sans-serif;
   font-family: "Open Sans Condensed", sans-serif;
   background-color: "gray";
@@ -29,7 +30,7 @@ body {
 }
 
 #container h1 {
-	font-family: "Open Sans Condensed", sans-serif;
+  text-align: center;
   font-weight: normal;
   text-transform: uppercase;
   margin: 0.3125em 0;
@@ -39,12 +40,12 @@ body {
 }
 
 .style-1 {
-  font-family: "Pacifico", sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   text-transform: none!important;
 }
 
 .style-2 {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Poor Story", system-ui;
 }
 
 .style-3 {
@@ -147,6 +148,7 @@ hover effect 8
 }
 
 .SMN_effect-8 a {
+	text-align: center;
   overflow: hidden;
   margin: 0 15px;
   padding: 0;
@@ -168,10 +170,10 @@ hover effect 8
 
 .SMN_effect-8 a:before {
   position: absolute;
+  text-align: center;
   top: 0;
   left: 0;
   z-index: -1;
-  padding: 10px 20px;
   width: 30px;
   height: 100%;
   background: #fff;
