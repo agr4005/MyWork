@@ -148,19 +148,16 @@ hover effect 8
 }
 
 .SMN_effect-8 a {
-	text-align: center;
   overflow: hidden;
   margin: 0 15px;
   padding: 0;
   text-decoration: none;
   font-size: 24px;
+    padding-bottom: 20px;
 }
 
-.SMN_effect-8 li {
-	list-style: none;
-}
 .SMN_effect-8 a span {
-  display: inline-block;
+  display: block;
   background: #272727;
   -webkit-transition: -webkit-transform 0.3s;
   -moz-transition: -moz-transform 0.3s;
@@ -170,11 +167,10 @@ hover effect 8
 
 .SMN_effect-8 a:before {
   position: absolute;
-  text-align: center;
   top: 0;
   left: 0;
   z-index: -1;
-  width: 30px;
+  width: 120px;
   height: 100%;
   background: #fff;
   color: #0f7c67;
