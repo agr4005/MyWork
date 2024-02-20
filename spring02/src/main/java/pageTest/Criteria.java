@@ -57,6 +57,7 @@ public class Criteria {
 		else this.rowsPerPage = 5;
 	}
 	
+	
 	//	2.3) setSnoEno : sno, eno 계산
 	public void setSnoEno() {
 		if (this.sno < 1) this.sno=1;
