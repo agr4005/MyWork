@@ -20,5 +20,5 @@ public interface JoMapper {
 
 		// ** delete
 		int delete(int jno);
-	
+
 }

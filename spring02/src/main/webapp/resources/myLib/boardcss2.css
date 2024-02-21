@@ -8,7 +8,6 @@ Normalizing
 -----------------
 */
 
-
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -46,6 +45,7 @@ body {
 
 .style-2 {
   font-family: "Poor Story", system-ui;
+  text-align: left;
 }
 
 .style-3 {
@@ -149,8 +149,7 @@ hover effect 8
 
 .SMN_effect-8 a {
   overflow: hidden;
-  margin: 0 15px;
-  padding: 0;
+  margin: 0.3125em 0.3125em;
   text-decoration: none;
   font-size: 24px;
     padding-bottom: 20px;
@@ -163,6 +162,8 @@ hover effect 8
   -moz-transition: -moz-transform 0.3s;
   transition: transform 0.3s;
   font-size: 24px;
+  text-align: center;
+
 }
 
 .SMN_effect-8 a:before {
@@ -179,6 +180,7 @@ hover effect 8
   -moz-transition: -moz-transform 0.3s;
   transition: transform 0.3s;
   -webkit-transform: translateX(-25%);
+  text-align: center;
 }
 
 .SMN_effect-8 a:hover span, .SMN_effect-8 a:focus span {

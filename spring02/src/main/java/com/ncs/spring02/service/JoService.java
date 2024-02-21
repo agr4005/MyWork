@@ -20,5 +20,4 @@ public interface JoService {
 
 	// ** delete
 	int delete(int jno);
-
 }
