@@ -1,0 +1,135 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&family=Single+Day&display=swap');
+
+* {
+	font-size: 18px;
+}
+
+body {
+  font-family: "Poor Story", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+	
+/* home	 */
+/*
+---------------------------------------
+hover effect 8
+---------------------------------------
+*/
+
+.SMN_effect-8 {
+  position: relative;
+  z-index: 1;
+}
+
+.SMN_effect-8 a {
+  overflow: hidden;
+  margin: 0 15px;
+  padding: 0;
+}
+
+.SMN_effect-8 a span {
+  display: block;
+  padding: 10px 20px;
+  background: #272727;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.SMN_effect-8 a:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #0f7c67;
+  content: attr(data-hover);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-transform: translateX(-25%);
+}
+
+.SMN_effect-8 a:hover span, .SMN_effect-8 a:focus span {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.SMN_effect-8 a:hover:before, .SMN_effect-8 a:focus:before {
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+/* Error Message */
+.eMessage {
+	color: red;
+	font-size: x-small; 
+	font-style: italic;
+}
+ /* Span MenuLink */
+.textlink { color:Blue; font-weight:bold; }
+.textlink:hover { 
+	color:DeepSkyBlue; 
+	font-size:1.2em; 
+	font-weight:bold;
+	cursor:pointer;
+}
+
+ textarea {
+    width: 100%;
+    height: 150px;
+    border: 1 bold;
+    resize: none;
+  }
+  
+.tr nth:first-child() {
+	text-align: center;
+}
+/* 5 */
+.button {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(255,27,0);
+background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
+}
+.button:hover {
+  color: #f0094a;
+  background: transparent;
+   box-shadow:none;
+}
+.button:before,
+.button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #f0094a;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.button:hover:before,
+.button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
