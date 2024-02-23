@@ -5,18 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>** Spring_Boot Mybatis MemberList **</title>
+<title>** Spring_Boot Axios MemberList **</title>
 <link rel="stylesheet" type="text/css"
 	 href="/resources/myLib/boardcss.css">
 </head>
 <body>
-<h2>** Spring_Boot Mybatis MemberList **</h2>
+<h2>** Spring_Boot Axios MemberList **</h2>
 <hr>
 <c:if test="${!empty requestScope.message}">
 => ${requestScope.message}<br><hr>
 </c:if>
 <table border="1" style="width:100%">
-<tr bgcolor="DeepSkyBlue">
+<tr bgcolor="hotpink">
 			<th>ID</th><th>Name</th><th>Age</th><th>Jno</th><th>Info</th>
 			<th>Point</th><th>Birthday</th><th>추천인</th><th>Image</th>
 			<!-- <th>Password</th> -->

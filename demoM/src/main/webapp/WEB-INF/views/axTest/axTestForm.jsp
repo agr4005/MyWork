@@ -14,7 +14,6 @@
 </head>
 <body>
 <h2>** AjaxTest Main Form **</h2>
-<hr>
 <c:if test="${not empty sessionScope.loginID}">
 	=> ${sessionScope.loginName}님 안녕하세요 ~~<br> 
 </c:if>
@@ -25,6 +24,7 @@
 &nbsp;<span class="textlink" onclick="rsLoginf()">rsLogin</span>&nbsp;
 &nbsp;<span class="textlink" onclick="rsJoinf()">rsJoin</span>&nbsp;
 &nbsp;<span class="textlink" onclick="axiMList()">axiMList</span>&nbsp;	
+&nbsp;<span class="textlink" onclick="axiMpage()">axiMpage</span>&nbsp;	
 &nbsp;<a href="/home" >[Home]</a>  
 <hr>
 <div id="resultArea1"></div>

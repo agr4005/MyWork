@@ -40,6 +40,33 @@ public class MemberController {
 	
 	JoService jservice;
 	
+	@GetMapping("/aximlist")
+	public String aximlist(Model model) {
+		model.addAttribute("banana",service.selectList());
+		return "axTest/axMemberList";
+	}	
+	
+	@GetMapping("/aximPage")
+	public String aximPage(HttpServletRequest request, Model model, SearchCriteria cri, PageMaker pageMaker) {
+	    // 1) Criteria 처리
+	    cri.setSnoEno();
+		
+		//	2) Service
+		model.addAttribute("banana", service.mPageList(cri));
+		
+		//	3) View 처리 : PageMaker 이용
+		String mappingName =
+				request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1);
+		
+		pageMaker.setCri(cri);
+		pageMaker.setMappingName(mappingName);
+		pageMaker.setTotalRowsCount(service.totalRowsCount(cri));
+		model.addAttribute("pageMaker", pageMaker);
+
+		return "axTest/axMPageList";
+	}	//mPageList
+	
+	
 	@GetMapping("/log4jTest")
 	public String log4jTest() {
 		String name="banana";
