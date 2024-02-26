@@ -45,26 +45,38 @@ public class MemberController {
 		model.addAttribute("banana",service.selectList());
 		return "axTest/axMemberList";
 	}	
-	
-	@GetMapping("/aximPage")
-	public String aximPage(HttpServletRequest request, Model model, SearchCriteria cri, PageMaker pageMaker) {
-	    // 1) Criteria 처리
-	    cri.setSnoEno();
+
+	//	** Ajax Member_Paging
+	// => ver01 : axmcri만 구현 (search 기능만 구현)
+	// => ver02 : "axmcheck" 요청도 처리할 수 있도록 구현
+	//		-> mappingName에 "check"가 포함되어 있으면 service를 아래의 메서드로 처리하도록
+	//		service.mCheckList(cri), mCheckRowCount(cri)
+	@GetMapping({"/axmcri","/axmcheck"})
+	public String axmcri(HttpServletRequest request, Model model, SearchCriteria cri, PageMaker pageMaker) {
+		// 1) Criteria 처리
+		cri.setSnoEno();
 		
-		//	2) Service
-		model.addAttribute("banana", service.mPageList(cri));
-		
-		//	3) View 처리 : PageMaker 이용
+		//	2) 요청 확인 & Service 처리
 		String mappingName =
 				request.getRequestURI().substring(request.getRequestURI().lastIndexOf("/")+1);
-		
-		pageMaker.setCri(cri);
 		pageMaker.setMappingName(mappingName);
-		pageMaker.setTotalRowsCount(service.totalRowsCount(cri));
+		pageMaker.setCri(cri);
+		
+		if (mappingName.contains("check")) {
+			model.addAttribute("banana", service.mCheckList(cri));			
+			pageMaker.setTotalRowsCount(service.totalRowsCount(cri));			
+		} else {
+			model.addAttribute("banana", service.mPageList(cri));			
+			pageMaker.setTotalRowsCount(service.totalRowsCount(cri));			
+		}
+		
+		//	3) View 처리 : PageMaker 이용
+		
 		model.addAttribute("pageMaker", pageMaker);
-
-		return "axTest/axMPageList";
+		
+		return "axTest/axmPageList";
 	}	//mPageList
+	
 	
 	
 	@GetMapping("/log4jTest")

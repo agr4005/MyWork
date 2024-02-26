@@ -97,12 +97,12 @@ function rsLogin(){
 function rsLoginjj(){
 	let url="/rest/rsloginjj";
 	
-	fetch(url, {method :'Post',
-				 body : JSON.stringify({
-					id: document.getElementById('id').value,
-					password: document.getElementById('password').value
-				}), //body
-				headers: {'Content-Type': 'application/json'}
+	axios({url:  url,
+			method :'Post',
+			headers: {'Content-Type': 'application/json'},
+			data : JSON.stringify({
+			id: document.getElementById('id').value,
+			password: document.getElementById('password').value}), 
 	}).then(response => {
 		if(!response.ok) throw new Error(response.status);
 		return response.json();
