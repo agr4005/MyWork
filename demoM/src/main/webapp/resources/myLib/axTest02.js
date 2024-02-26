@@ -23,9 +23,9 @@ function rsJoinf() {
 		console.log('** response : JoinForm 성공 ')
 		document.getElementById('resultArea1').innerHTML=response.data;
 	}).catch(err => {
-		alert(`** response : JoinForm 실패 => ${err/message}`);
+		alert(`** response : JoinForm 실패 => ${err.message}`);
 	});
-	
+	document.getElementById('resultArea2').innerHTML='';
 }	//rsJOinf
 
 // ** form Tag의 input Data 처리방법
@@ -62,7 +62,8 @@ function axiJoin() {
 			{headers: {'Content-Type': 'multipart/form-data'}
 	}).then(response => {
 		alert(`** Join 성공 => ${response.data}`);
-		location.reload();
+		//location.reload();
+		rsLoginf();
 	}).catch(err => {
 		if (err.response.status == '502') alert("입력 오류!! 다시 하세요.");
 		else alert(`시스템 오류! => ${err.message}`)
