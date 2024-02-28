@@ -1,0 +1,250 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&family=Single+Day&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+/*
+-----------------
+Normalizing
+-----------------
+*/
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+a {
+	 text-decoration: none;
+	 font-size: 16px;
+}
+
+body {
+  font-family: "Poor Story", sans-serif;
+  font-family: "Pacifico", sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
+  background-color: "gray";
+}
+
+#container {
+  margin: 0 auto;
+  max-width: 520px;
+  text-align: center;
+}
+
+#container h1 {
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 0.3125em 0;
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.style-1 {
+  font-family: "Open Sans Condensed", sans-serif;
+  text-transform: none!important;
+}
+
+.style-2 {
+  font-family: "Poor Story", system-ui;
+  text-align: left;
+}
+
+.style-3 {
+  font-family: "Oswald", sans-serif;
+}
+
+.style-1:before {
+  content: "";
+  height: 3px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  position: absolute;
+  width: 300%;
+  top: 50%;
+  left: -100%;
+  z-index: -999;
+}
+
+.style-2:before {
+  content: "";
+  height: 3px;
+  border-top: 2px dotted white;
+  border-bottom: 2px dotted white;
+  position: absolute;
+  width: 300%;
+  top: 45%;
+  left: -100%;
+  z-index: -999;
+}
+
+.style-3:before {
+  content: "";
+  border-top: 1px solid white;
+  position: absolute;
+  width: 300%;
+  top: 35%;
+  left: -100%;
+  z-index: -999;
+}
+
+.style-3:after {
+  content: "";
+  border-bottom: 1px solid white;
+  position: absolute;
+  width: 300%;
+  bottom: 35%;
+  left: -100%;
+  z-index: -999;
+}
+
+
+a:hover, a:focus {
+  outline: none;
+}
+
+/*----*/
+
+h3 {
+  color: #fff;
+  font-weight: bold;
+  margin: 0 0 50px 0;
+  position: relative;
+  padding: 0 0 5px 0;
+}
+
+h3:before {
+  content: "";
+  background: rgba(255, 255, 255, 0.1);
+  bottom: -4px;
+  width: 25%;
+  height: 1px;
+  left: 0;
+  position: absolute;
+}
+
+.back {
+  padding: 50px 0 50px 0;
+}
+
+.menu a {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Open Sans Condensed';
+  font-size: 17pt;
+  font-weight: 400;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/*
+---------------------------------------
+hover effect 8
+---------------------------------------
+*/
+
+.SMN_effect-8 {
+  position: relative;
+  z-index: 1;
+}
+
+.SMN_effect-8 a {
+  overflow: hidden;
+  margin: 0.3125em 0.3125em;
+  text-decoration: none;
+  font-size: 24px;
+    padding-bottom: 20px;
+}
+
+.SMN_effect-8 a span {
+  display: block;
+  background: #272727;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+  font-size: 24px;
+  text-align: center;
+
+}
+
+.SMN_effect-8 a:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 120px;
+  height: 100%;
+  background: #fff;
+  color: #0f7c67;
+  content: attr(data-hover);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-transform: translateX(-25%);
+  text-align: center;
+}
+
+.SMN_effect-8 a:hover span, .SMN_effect-8 a:focus span {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.SMN_effect-8 a:hover:before, .SMN_effect-8 a:focus:before {
+  -webkit-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+/* Error Message */
+.eMessage {
+	color: red;
+	font-size: x-small; 
+	font-style: italic;
+}
+
+/* 5 */
+.button {
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(255,27,0);
+background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
+}
+.button:hover {
+  color: #f0094a;
+  background: transparent;
+   box-shadow:none;
+}
+.button:before,
+.button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #f0094a;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.button:hover:before,
+.button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

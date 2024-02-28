@@ -483,9 +483,29 @@ public class RESTController {
 			log.info("** axidelete HttpStatus.OK => " + HttpStatus.OK);
 			return new ResponseEntity<String> ("** 삭제 성공 **", HttpStatus.OK);
 		} else {
-			log.info("** axidelete HttpStatus.OK => " + HttpStatus.BAD_GATEWAY);
+			log.info("** axidelete HttpStatus.BAD_GATEWAY => " + HttpStatus.BAD_GATEWAY);
 			return new ResponseEntity<String> ("** 삭제 실패, Data_NotFound **", HttpStatus.BAD_GATEWAY);
 		}
+	} //axidelete
+	
+	@GetMapping("/jodetail/{jj}")
+	public ResponseEntity<?> jodetail(@PathVariable("jj")int jno) {
+		
+		ResponseEntity<?> result = null;
+		JoDTO dto = new JoDTO();
+		dto.setJno(jno);
+		// 2) Service & return
+		// => Jno로 selectOne, 성공시 captain 비교, 일치하면 성공, 아니면 오류
+		dto = jservice.selectOne(jno);
+		if (dto != null) {
+			result = ResponseEntity.status(HttpStatus.OK).body(dto);
+			log.info("** jodetail HttpStatus.OK => " + HttpStatus.OK);
+		} else {
+			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+					.body("~~ 출력할 자료가 없습니다 ~~");
+			log.info("** jodetail HttpStatus.BAD_GATEWAY => " + HttpStatus.BAD_GATEWAY);
+		}
+		return result;
 	}
 
 } // class
