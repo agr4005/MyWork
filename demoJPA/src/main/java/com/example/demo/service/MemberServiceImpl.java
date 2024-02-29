@@ -1,18 +1,15 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.MemberDTO;
 import com.example.demo.entity.Member;
 import com.example.demo.repository.MemberRepository;
 
-import mapperInterface.MemberMapper;
-import pageTest.SearchCriteria;
+import lombok.RequiredArgsConstructor;
 
 //	** Interface 자동완성
 //	** Alt + Shift + T
@@ -35,31 +32,59 @@ import pageTest.SearchCriteria;
 // -> 즉, Java interface, Mapper, Mapper.xml 의 namespace의 값(패키지와 파일명)이 모두 동일해야함
 //	-> 그리고 해당 메서드는 Mapper의 xml 구문의 id 속성값으로 찾음.
 
+@Service
+@RequiredArgsConstructor
+	public class MemberServiceImpl implements MemberService { 
+	
+	private final MemberRepository repository;
 
-/*
- * @Service public class MemberServiceImpl implements MemberService { // ** 전역변수
- * 정의 private final MemberRepository repository;
- * 
- * // ** Member Check_List
- * 
- * // ** selectList
- * 
- * @Override public List<Member> selectList() { return repository.findAll(); }
- * 
- * // ** selectOne
- * 
- * @Override public MemberDTO selectOne(String id) { return
- * mapper.selectOne(id); }
- * 
- * // ** insert
- * 
- * @Override public int insert(MemberDTO dto) { return mapper.insert(dto); }
- * 
- * // ** update
- * 
- * @Override public int update(MemberDTO dto) { return mapper.update(dto); }
- * 
- * // ** delete
- * 
- * @Override public int delete(String id) { return mapper.delete(id); } }
- */
+	@Override
+	public List<Member> findByJno(int jno) {
+		return repository.findByJno(jno);
+	}
+	
+	// ** selectList
+
+	@Override
+	public List<Member> selectList() {
+		return repository.findAll();
+	}
+
+	// ** selectOne
+
+	@Override
+	public Member selectOne(String id) {
+		
+		Optional<Member> result = repository.findById(id);
+		if(result.isPresent()) return result.get();
+		else return null;
+	}
+
+	// ** insert, update
+
+	@Override
+	public Member save(Member entity) {
+		return repository.save(entity);
+	}
+
+	// ** delete
+
+	@Override
+	public void deleteById(String id) {
+		 repository.deleteById(id);
+	}
+	
+	// ** pwUpdate
+	
+	@Override
+	public void updatePassword(String id, String password) {
+		repository.updatePassword(id, password);
+	}
+	
+	   // ** Join
+	   @Override
+	   public List<MemberDTO> findMemberJoin1() {
+	      return repository.findMemberJoin1();
+	   }
+
+}

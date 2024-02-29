@@ -42,7 +42,7 @@
 <c:if test="${empty sessionScope.loginID && empty requestScope.message}">
 <div id="container"><h1 class="style-2">로그인 후 이용하세요 ~~<br></h1></div>
 </c:if>
-  
+  <hr>
 	<img alt="mainImage" src="/resources/images/jerry01.gif" width="300" height="200"
 	style="text-align: center">
 
@@ -60,6 +60,7 @@
         <a href="/glist" data-hover="GList" style="width: 120"><span style="width: 120">GList</span></a>&nbsp;
         <a href="/gupdate" data-hover="GUpdate" style="width: 120"><span style="width: 120">GUpdate</span></a>&nbsp;
         <a href="/gpage" data-hover="GPage" style="width: 120"><span style="width: 120">GPage</span></a>&nbsp;
+        <a href="/member/mjoinList" data-hover="MJoinList" style="width: 120"><span style="width: 120">MJoinList</span></a>&nbsp;
 </div>
 <!-- 	&nbsp; <a href="member/memberList" >MList</a> &nbsp;	
 	&nbsp; <a href="jo/joList" >JList</a> &nbsp;	

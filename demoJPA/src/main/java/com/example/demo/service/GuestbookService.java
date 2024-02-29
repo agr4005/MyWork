@@ -15,10 +15,6 @@ public interface GuestbookService {
 	//	** JPA Pageable을 이용한 Paging 기능
 	PageResultDTO<GuestbookDTO,Guestbook> pageList(PageRequestDTO requestDTO);
 
-	
-	
-	
-	
 	//	=> JPA CRUD 구현
 	//	insert, update 위해 주로 사용되므로 regDate, modDate는 제외됨
 	List<Guestbook> selectList();

@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>** Spring_Boot Mybatis Member Detail **</title>
 <link rel="stylesheet" type="text/css"
-	 href="/resources/myLib/boardcss2.css">
+	 href="/resources/myLib/boardcss.css">
 </head>
 <body>
 <h2>** Spring_Boot Mybatis Member Detail **</h2>

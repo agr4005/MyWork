@@ -99,9 +99,11 @@
 </table>
 </form>
 <br><hr>
-&nbsp;<a href="pwUpdate">Password수정</a>&nbsp;
+&nbsp;<a href="pwUpdate">Password수정</a><br>
+
 <c:if test="${!empty requestScope.message}">
-=> ${requestScope.message}<br><hr>
+<hr>
+=> ${requestScope.message}<br>
 </c:if>	
 <hr>
 &nbsp;<a href="/home">Home</a>&nbsp;

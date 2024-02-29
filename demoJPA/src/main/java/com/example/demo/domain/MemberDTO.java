@@ -67,7 +67,7 @@ import lombok.NoArgsConstructor;
 @Data					// getter / setter / toString
 //=> 정의된 모든 필드에 대한 
 //Getter, Setter, ToString 과 같은 모든 요소를 한번에 만들어주는 애너테이션.
-public class MemberDTO {
+public class MemberDTO extends JoDTO{
 	// 1) private 멤버변수
 	private String id; //primary_Key
 	private String password; //not null
@@ -87,7 +87,13 @@ public class MemberDTO {
 	
 	// 2) getter/setter
 	// 3) toString
-
+	public MemberDTO(String id, String name, int jno, String jname, String project) {
+		this.id = id;
+		this.name = name;
+		this.jno = jno;
+		super.jname = jname;
+		super.project = project;
+	}
 	
 	
 }

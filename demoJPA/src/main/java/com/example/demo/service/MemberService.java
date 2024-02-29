@@ -3,37 +3,31 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.domain.MemberDTO;
-
-import pageTest.SearchCriteria;
+import com.example.demo.entity.Member;
 
 public interface MemberService {
 
-	// ** Member Check List
-	public List<MemberDTO> mCheckList(SearchCriteria cri);
-	public int mCheckRowsCount(SearchCriteria cri);
-
-	//** Member_Paging
-	public List<MemberDTO> mPageList(SearchCriteria cri);
-	public int totalRowsCount(SearchCriteria cri);
+	//	1) JPARepository Method 규약
+	//	=> Jno별 Member 출력
+	List<Member> findByJno(int jno);
 	
 	// ** selectList
-	List<MemberDTO> selectList();
+	List<Member> selectList();
 
 	// ** selectOne
-	MemberDTO selectOne(String id);
+	Member selectOne(String id);
 
-	// ** insert
-	int insert(MemberDTO dto);
-
-	// ** update
-	int update(MemberDTO dto);
+	// ** insert, update
+	Member save(Member entity);
+	
+	// ** Password Update
+	//	=> @Query 적용
+	void updatePassword(String id,String password); 
 
 	// ** delete
-	int delete(String id);
-	
-	// ** selectJoList
-	List<MemberDTO> selectJoList(int jno);
+	void deleteById(String id);
 
-	// ** pwUpdate
-	int pwUpdate(MemberDTO dto);
+	   // ** Join
+	   List<MemberDTO> findMemberJoin1();
+	   
 }
