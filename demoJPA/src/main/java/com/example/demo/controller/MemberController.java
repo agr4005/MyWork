@@ -308,7 +308,7 @@ public class MemberController {
 	   
 	   @GetMapping("/mjoinList")
 	   public void mjoinList(Model model) {
-		   model.addAttribute("banana", service.findMemberJoin1());
+		   model.addAttribute("banana", service.findMemberJoin());
 	   }
 	
 	

@@ -55,13 +55,23 @@
        <a href="member/mPageList" data-hover="MPage" style="width: 120"><span style="width: 120">MPage</span></a>&nbsp;
         <a href="/axtestform" data-hover="Ajax" style="width: 120"><span style="width: 120">AjaxTest</span></a>
        </div>
- <div class="menu align-center expanded text-center SMN_effect-8" style="display: flex">
-        <a href="/ginsert" data-hover="GInsert" style="width: 120"><span style="width: 120">GInsert</span></a>&nbsp;
-        <a href="/glist" data-hover="GList" style="width: 120"><span style="width: 120">GList</span></a>&nbsp;
-        <a href="/gupdate" data-hover="GUpdate" style="width: 120"><span style="width: 120">GUpdate</span></a>&nbsp;
-        <a href="/gpage" data-hover="GPage" style="width: 120"><span style="width: 120">GPage</span></a>&nbsp;
-        <a href="/member/mjoinList" data-hover="MJoinList" style="width: 120"><span style="width: 120">MJoinList</span></a>&nbsp;
-</div>
+       
+	 <div class="menu align-center expanded text-center SMN_effect-8" style="display: flex">
+	        <a href="/ginsert" data-hover="GInsert" style="width: 120"><span style="width: 120">GInsert</span></a>&nbsp;
+	        <a href="/glist" data-hover="GList" style="width: 120"><span style="width: 120">GList</span></a>&nbsp;
+	        <a href="/gupdate" data-hover="GUpdate" style="width: 120"><span style="width: 120">GUpdate</span></a>&nbsp;
+	        <a href="/gpage" data-hover="GPage" style="width: 120"><span style="width: 120">GPage</span></a>&nbsp;
+	        <a href="/member/mjoinList" data-hover="MJoinList" style="width: 120"><span style="width: 120">MJoinList</span></a>&nbsp;
+	</div>
+
+	 <div class="menu align-center expanded text-center SMN_effect-8" style="display: flex">
+	        <a href="/tinsert" data-hover="Tsave" style="width: 120"><span style="width: 120">TSave</span></a>&nbsp;
+	        <a href="/tupdate" data-hover="TUpdate" style="width: 120"><span style="width: 120">TUpdate</span></a>&nbsp;
+	        <a href="/tdupupdate" data-hover="TDupUpdate" style="width: 120"><span style="width: 120">TDupUpdate</span></a>&nbsp;
+	        <a href="/tcalcCount" data-hover="TCalc" style="width: 120"><span style="width: 120">TCalc</span></a>&nbsp;
+	        <a href="/testlist" data-hover="TList" style="width: 120"><span style="width: 120">TList</span></a>&nbsp;
+	        <br>
+	</div>
 <!-- 	&nbsp; <a href="member/memberList" >MList</a> &nbsp;	
 	&nbsp; <a href="jo/joList" >JList</a> &nbsp;	
 	&nbsp; <a href="board/boardList" >BList</a> &nbsp;		

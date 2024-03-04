@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.MemberDTO;
 import com.example.demo.entity.Member;
+import com.example.demo.repository.MemberDSLRepositoryImpl;
 import com.example.demo.repository.MemberRepository;
+import com.example.demo.repository.MyRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,17 +39,21 @@ import lombok.RequiredArgsConstructor;
 	public class MemberServiceImpl implements MemberService { 
 	
 	private final MemberRepository repository;
+	private final MyRepository emrepository;
+	private final MemberDSLRepositoryImpl dslrepository;
 
 	@Override
 	public List<Member> findByJno(int jno) {
-		return repository.findByJno(jno);
+		//return repository.findByJno(jno); // ver01
+		return dslrepository.findMemberJnoDSL(jno);
 	}
 	
 	// ** selectList
 
 	@Override
 	public List<Member> selectList() {
-		return repository.findAll();
+		//return repository.findAll(); //ver01
+		return emrepository.emMemberList();	//ver02: EntityManager Test
 	}
 
 	// ** selectOne
@@ -55,9 +61,12 @@ import lombok.RequiredArgsConstructor;
 	@Override
 	public Member selectOne(String id) {
 		
-		Optional<Member> result = repository.findById(id);
-		if(result.isPresent()) return result.get();
-		else return null;
+//		Optional<Member> result = repository.findById(id);
+//		if(result.isPresent()) return result.get();
+//		else return null;	//ver01
+		
+		return emrepository.emMemberDetail(id);
+		//	ver02: EntityManager Test
 	}
 
 	// ** insert, update
@@ -83,8 +92,14 @@ import lombok.RequiredArgsConstructor;
 	
 	   // ** Join
 	   @Override
-	   public List<MemberDTO> findMemberJoin1() {
-	      return repository.findMemberJoin1();
+	   public List<MemberDTO> findMemberJoin() {
+	      return dslrepository.findMemberJoinDSL();
+	   }
+	   
+	   // ** Join
+	   @Override
+	   public List<MemberDTO> findMemberJoin2() {
+		   return repository.findMemberJoin2();
 	   }
 
 }
