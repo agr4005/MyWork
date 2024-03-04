@@ -29,6 +29,51 @@ project varchar(20),
 slogan varchar(30)  
 );
 
+
+
+create table pmember (	// 유저 테이블
+	id varchar2(12) primary key,
+    password varchar2(16) not null,
+    addredss varchar2(100) not null,
+    phoneNum varchar2(20) not null,
+    email varchar2(50),
+    name varchar2(20),
+    status int(1),
+    // 유저상태 / 1: 일반 유저 
+    regdate date default sysdate
+    // 가입날짜
+    );
+
+create table admin (	// 관리자 테이블
+	id varchar2(12) primary key,
+    password varchar2(16) not null,
+    phoneNum varchar2(20) not null,
+    email varchar2(50),
+    name varchar2(20)
+    // 해당 테이블에 속한 경우 관리자 페이지 이동 가능
+)
+
+create table dropmember (	// 탈퇴 유저 테이블
+	id varchar2(12) primary key,
+	phoneNum varchar2(20) not null,
+	email varchar2(50),
+    name varchar2(20),
+    regdate date default sysdate
+    //	탈퇴 날짜 표기. 특정 날짜 경과후 재가입 가능
+)
+
+
+create table gorder (
+	name varchar2(20) primary key,
+	// 비회원 주문자 이름
+	ordernumber int(16) not null,
+	// 주문번호
+	orderpw varchar(16) not null
+	// 비회원 주문 비밀번호
+);
+
+
+
 -----------------------------------------------------------------------------------
 *** web02 를 위한 Table 작업
 

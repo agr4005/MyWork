@@ -29,5 +29,10 @@ public interface MemberService {
 
 	   // ** Join
 	   List<MemberDTO> findMemberJoin();
+<<<<<<< HEAD
+=======
+	   
+	   List<MemberDTO> findMemberJoin2();
+>>>>>>> branch 'master' of https://github.com/agr4005/MyWork.git
 	   
 }

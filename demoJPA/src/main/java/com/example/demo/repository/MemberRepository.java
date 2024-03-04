@@ -58,7 +58,7 @@ import com.example.demo.entity.Member;
 //  이를 ~DTO 로 받기 위해서 select new ~~~ 를 사용함.
 
 //2.2) Native_SQL 및 
-//=> DB 테이블을 대상으로함 
+//=> DB 테이블을 대상으로함  (Table명 그대로 사용함)
 //=> @Query의 nativeQuery 속성을 true로 설정, value 속성에 SQL구문 작성 
 //  -> 예)   
 //   @Query(value = "SELECT * FROM USERS u WHERE u.status = 1"
@@ -163,9 +163,16 @@ public interface MemberRepository
 	// => JPQL
 	//	- Entity가 아닌 MemberDTO로 return 받기위해 new를 사용
 	//	-Table명 대신 Entity명을 사용
-	//@Query("SELECT new com.example.demo.domain.MemberDTO(m.id, m.name, m.jno, j.jname, j.project) FROM Member m LEFT JOIN Jo j ON m.jno=j.jno order by m.jno")
-	//List<MemberDTO> findMemberJoin();
+	@Query("SELECT new com.example.demo.domain.MemberDTO(m.id, m.name, m.jno, j.jname, j.project) FROM Member m LEFT JOIN Jo j ON m.jno=j.jno order by m.jno")
+	List<MemberDTO> findMemberJoin();
+
+	@Query("SELECT m.id, m.name, m.jno, j.jname, j.project FROM Member m LEFT JOIN Jo j ON m.jno=j.jno order by m.jno")
+	List<MemberDTO> findMemberJoin2();
 	
+<<<<<<< HEAD
 	@Query(nativeQuery = true, value = "SELECT new com.example.demo.domain.MemberDTO(m.id, m.name, m.jno, j.jname, j.project) FROM Member m LEFT JOIN Jo j ON m.jno=j.jno order by m.jno")
 	List<MemberDTO> findMemberJoin();
+=======
+	
+>>>>>>> branch 'master' of https://github.com/agr4005/MyWork.git
 }

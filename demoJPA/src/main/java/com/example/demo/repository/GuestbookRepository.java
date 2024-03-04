@@ -28,8 +28,10 @@ import com.example.demo.entity.Guestbook;
 //   있으면 update를 동작시키고, entity를 return.   
 // - deleteById(키) 삭제의 경우에도 select 후 없으면 ~~DataAccessException 발생시키고
 //   있으면 삭제하고 void 로 정의되어 return값 없음. 
+
 //=> JpaRepository의 save()메서드 동작원리
-//- 새로운 entity이면 persist() 를 아니면 merge()를 호출
+//- 새로운 entity이면 persist() 를 
+//	아니면 EntityManager의 merge()를 호출
 
 public interface GuestbookRepository 
 					extends JpaRepository<Guestbook, Long>{
