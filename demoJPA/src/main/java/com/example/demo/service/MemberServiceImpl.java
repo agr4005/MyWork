@@ -83,8 +83,8 @@ import lombok.RequiredArgsConstructor;
 	
 	   // ** Join
 	   @Override
-	   public List<MemberDTO> findMemberJoin1() {
-	      return repository.findMemberJoin1();
+	   public List<MemberDTO> findMemberJoin() {
+	      return repository.findMemberJoin();
 	   }
 
 }

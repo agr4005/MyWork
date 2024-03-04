@@ -28,6 +28,6 @@ public interface MemberService {
 	void deleteById(String id);
 
 	   // ** Join
-	   List<MemberDTO> findMemberJoin1();
+	   List<MemberDTO> findMemberJoin();
 	   
 }

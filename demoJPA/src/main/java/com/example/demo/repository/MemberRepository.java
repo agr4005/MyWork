@@ -167,5 +167,5 @@ public interface MemberRepository
 	//List<MemberDTO> findMemberJoin();
 	
 	@Query(nativeQuery = true, value = "SELECT new com.example.demo.domain.MemberDTO(m.id, m.name, m.jno, j.jname, j.project) FROM Member m LEFT JOIN Jo j ON m.jno=j.jno order by m.jno")
-	List<MemberDTO> findMemberJoin1();
+	List<MemberDTO> findMemberJoin();
 }
